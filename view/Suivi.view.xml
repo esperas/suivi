@@ -1,0 +1,126 @@
+<mvc:View
+          controllerName="ecole.famille.controller.Suivi"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc">
+    <Panel class="sapUiResponsiveMargin"
+           width="auto"
+           headerText="Famille : {famille>/famille}">
+        <content>
+            <l:VerticalLayout class="sapUiSmallMargin" >
+                <Text  text="{famille>/nom}" />
+                <Text  text="{famille>/adresse1}" />
+                <Text  text="{famille>/adresse2}" />
+                <Text  text="{famille>/ville}" />
+            </l:VerticalLayout>
+        </content>
+    </Panel>
+
+    <Panel >
+        <ObjectHeader
+                      title="{i18n>SuiviPageTitle}"
+                      intro="{i18n>maj} {famille>/maj}"
+                      number="{
+                                parts: [{path: 'famille>/solde'}, {path: 'famille>/currency'}],
+			                   type: 'sap.ui.model.type.Currency',
+			                   formatOptions: {
+				                    showMeasure: false
+			                   }
+                              }"
+		              numberUnit="{path: 'famille>/currency'}"
+                      numberState="{= ${famille>/solde} >= 0 ? 'Success' : 'Error' }"
+                      >
+            <statuses>
+                <ObjectStatus
+                    visible="{= ${famille>/solde} >= 0 ? false : true }"
+                    text="{i18n>debiteur}"
+                    state="Error" />
+            </statuses>
+        </ObjectHeader>
+        <Table id="idProductsTable"
+               inset="false"
+               fixedLayout="false"
+               showSeparators="All"
+               items="{
+                      path: 'famille>/suivi'
+                      }">
+
+            <columns>
+                <Column
+                        flexible="true"
+                        resizable="true"
+                        autoResizable="true"
+                        width="auto">
+                    <Text text="{i18n>date}" />
+                </Column>
+                <Column
+                        flexible="true"
+                        resizable="true"
+                        autoResizable="true"
+                        width="auto">
+                    <Text text="{i18n>factures}" />
+                </Column>
+                <Column
+                        flexible="true"
+                        resizable="true"
+                        autoResizable="true"
+                        width="auto">
+                    <Text text="{i18n>reglements}" />
+                </Column>
+                <Column
+                        flexible="true"
+                        resizable="true"
+                        autoResizable="true"
+                        width="auto">
+                    <Text text="{i18n>libelle}" />
+                </Column>
+
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <ObjectIdentifier
+                                          title="{famille>date}"
+                                          />
+                        <ObjectNumber       visible="{path: 'famille>facture', formatter: '.formatter.isNotEmpty'}"
+                                      		number="{
+                                                parts: [{path: 'famille>facture'}, {path: 'famille>/currency'}],
+			                                     type: 'sap.ui.model.type.Currency',
+			                                     formatOptions: {
+				                                    showMeasure: false
+			                                     }
+		                                      }"
+		                                  numberUnit="{famille>/currency}"
+                                     />
+                        <ObjectNumber       visible="{path: 'famille>reglement', formatter: '.formatter.isNotEmpty'}"
+                                      		number="{
+                                                parts: [{path: 'famille>reglement'}, {path: 'famille>/currency'}],
+			                                     type: 'sap.ui.model.type.Currency',
+			                                     formatOptions: {
+				                                    showMeasure: false
+			                                     }
+		                                      }"
+		                                  numberUnit="{famille>/currency}"
+                                     />
+
+                        <FlexBox
+                               alignItems="Start"
+					           justifyContent="Start">
+					       <items>
+                            <Text
+                                  text="{famille>libelle}" />
+
+                            <Button
+                                    visible="{ path: 'famille>piece',
+		                                      formatter: '.formatter.isNotEmpty'}"
+                                    class="sapUiMediumMarginBegin"
+                                    icon="sap-icon://download" press="onPDF" ariaLabelledBy="editButtonLabel"/>
+					       </items>
+				        </FlexBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Panel>
+
+</mvc:View>
