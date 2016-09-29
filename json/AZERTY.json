@@ -8,15 +8,15 @@
 "suivi": 
 [
 {
-"date": "26/08/2015","facture": "","reglement": "73.2500","libelle": "Virement","piece": "","paiement": "X"
+"date": "26/08/2015","facture": "","reglement": "73.2500","libelle": "Virement","piece": "","paiement": "X", "currency":"EUR"
 }
 ,
 {
-"date": "03/08/2015","facture": "1.3000","reglement": "","libelle": "Facture n° : 1072","piece": "","paiement": ""
+"date": "03/08/2015","facture": "1.3000","reglement": "","libelle": "Facture n° : 1072","piece": "1072","paiement": "N"
 }
 ,
 {
-"date": "03/07/2015","facture": "73.2500","reglement": "","libelle": "Facture n° : 1042","piece": "","paiement": "X"
+"date": "03/07/2015","facture": "73.2500","reglement": "","libelle": "Facture n° : 1042","piece": "1042","paiement": "R"
 }
 ,
 {
