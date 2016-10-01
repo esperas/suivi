@@ -1,16 +1,23 @@
-<mvc:View
-          controllerName="ecole.famille.controller.App"
-          xmlns:l="sap.ui.layout"
-          xmlns:mvc="sap.ui.core.mvc"
-          xmlns="sap.m"
-          displayBlock="true">
-    <App>
-        <pages>
-            <Page title="{i18n>homePageTitle}">
-                <mvc:XMLView viewName="ecole.famille.view.Famille"/>
-                <mvc:XMLView viewName="ecole.famille.view.Suivi"/>
-            </Page>
-        </pages>
-    </App>
+<mvc:View controllerName="ecole.famille.controller.App" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
+	<App>
+		<pages>
+			<Page>
+				<SplitContainer id="SplitContDemo" initialDetail="suivi" initialMaster="famille">
+					<detailPages>
+						<mvc:XMLView viewName="ecole.famille.view.Suivi" />
+					</detailPages>
+					<masterPages>
+						<mvc:XMLView viewName="ecole.famille.view.Famille" />
+					</masterPages>
+				</SplitContainer>
+			</Page>
+
+
+		<!--	<Page title="{i18n>homePageTitle}">
+				<mvc:XMLView viewName="ecole.famille.view.Famille" />
+				<mvc:XMLView viewName="ecole.famille.view.Suivi" />
+			</Page> -->
+		</pages>
+	</App>
 
 </mvc:View>
