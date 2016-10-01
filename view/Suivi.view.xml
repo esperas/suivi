@@ -3,19 +3,7 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
-    <Panel class="sapUiResponsiveMargin"
-           width="auto"
-           headerText="Famille : {famille>/famille}">
-        <content>
-            <l:VerticalLayout class="sapUiSmallMargin" >
-                <Text  text="{famille>/nom}" />
-                <Text  text="{famille>/adresse1}" />
-                <Text  text="{famille>/adresse2}" />
-                <Text  text="{famille>/ville}" />
-            </l:VerticalLayout>
-        </content>
-    </Panel>
-
+    
     <Panel >
         <ObjectHeader
                       title="{i18n>SuiviPageTitle}"
@@ -67,50 +55,7 @@
 					    <ObjectAttribute text="Le {famille>date}" />
 				    </attributes>
 			    </ObjectListItem>
-                
-                
-            <!--    <ColumnListItem>-->
-            <!--        <cells>-->
-            <!--            <ObjectIdentifier-->
-            <!--                              title="{famille>date}"-->
-            <!--                              />-->
-            <!--            <ObjectNumber       visible="{path: 'famille>facture', formatter: '.formatter.isNotEmpty'}"-->
-            <!--                          		number="{-->
-            <!--                                    parts: [{path: 'famille>facture'}, {path: 'famille>/currency'}],-->
-			         <!--                            type: 'sap.ui.model.type.Currency',-->
-			         <!--                            formatOptions: {-->
-				        <!--                            showMeasure: false-->
-			         <!--                            }-->
-		          <!--                            }"-->
-		          <!--                        numberUnit="{famille>/currency}"-->
-            <!--                         />-->
-            <!--            <ObjectNumber       visible="{path: 'famille>reglement', formatter: '.formatter.isNotEmpty'}"-->
-            <!--                          		number="{-->
-            <!--                                    parts: [{path: 'famille>reglement'}, {path: 'famille>/currency'}],-->
-			         <!--                            type: 'sap.ui.model.type.Currency',-->
-			         <!--                            formatOptions: {-->
-				        <!--                            showMeasure: false-->
-			         <!--                            }-->
-		          <!--                            }"-->
-		          <!--                        numberUnit="{famille>/currency}"-->
-            <!--                         />-->
-
-            <!--            <FlexBox-->
-            <!--                   alignItems="Start"-->
-					       <!--    justifyContent="Start">-->
-					       <!--<items>-->
-            <!--                <Text-->
-            <!--                      text="{famille>libelle}" />-->
-
-            <!--                <Button-->
-            <!--                        visible="{ path: 'famille>piece',-->
-		          <!--                            formatter: '.formatter.isNotEmpty'}"-->
-            <!--                        class="sapUiMediumMarginBegin"-->
-            <!--                        icon="sap-icon://download" press="onPDF" ariaLabelledBy="editButtonLabel"/>-->
-					       <!--</items>-->
-				        <!--</FlexBox>-->
-            <!--        </cells>-->
-            <!--    </ColumnListItem>-->
+       
             </items>
         </List>
     </Panel>

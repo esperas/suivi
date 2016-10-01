@@ -7,6 +7,7 @@
     <App>
         <pages>
             <Page title="{i18n>homePageTitle}">
+                <mvc:XMLView viewName="ecole.famille.view.Famille"/>
                 <mvc:XMLView viewName="ecole.famille.view.Suivi"/>
             </Page>
         </pages>
