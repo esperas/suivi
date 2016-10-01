@@ -3,7 +3,10 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
-    <Page id="famille">
+    <Page 
+        id="famille" 
+        class="sapUiStdPage" 
+        title="Adresse">
     <Panel class="sapUiResponsiveMargin"
            width="auto"
            headerText="Famille : {famille>/famille}">

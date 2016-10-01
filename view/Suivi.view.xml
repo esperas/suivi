@@ -3,7 +3,11 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
-    <Page id="suivi">
+    <Page 
+        id="suivi" 
+        class="sapUiStdPage" 
+        title="Suivi des paiements famille {famille>/famille}"
+        >
     <Panel >
         <ObjectHeader
                       title="{i18n>SuiviPageTitle}"
