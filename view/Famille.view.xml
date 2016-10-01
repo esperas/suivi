@@ -1,0 +1,18 @@
+<mvc:View
+          controllerName="ecole.famille.controller.Suivi"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc">
+    <Panel class="sapUiResponsiveMargin"
+           width="auto"
+           headerText="Famille : {famille>/famille}">
+        <content>
+            <l:VerticalLayout class="sapUiSmallMargin" >
+                <Text  text="{famille>/nom}" />
+                <Text  text="{famille>/adresse1}" />
+                <Text  text="{famille>/adresse2}" />
+                <Text  text="{famille>/ville}" />
+            </l:VerticalLayout>
+        </content>
+    </Panel>
+</mvc:View>
