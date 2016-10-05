@@ -52,14 +52,17 @@ sap.ui.define([], function () {
         },
         isStatusState : function (status) {
             if (typeof status == 'undefined') { 
-                return "none";
+                return "None";
             } else if (status=='N') { 
                 return "Warning";
             } else if (status=='X') {
                 return "Success";
             } else if (status=='R') {
                 return "Error";
+            } else {
+                return "None";
             }
+
             ;
         }        
 
