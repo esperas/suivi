@@ -51,7 +51,10 @@
                 "viewPath": "ecole.famille.view",
                 "controlId": "app",
                 "controlAggregation": "pages",
-                "transition": "slide"
+                "transition": "slide",
+                "bypassed": {
+                        "target": "404"
+                }
             },
             "routes": [{
                 "pattern": "",
@@ -62,6 +65,10 @@
                 "home": {
                     "viewName": "Split",
                     "viewLevel" : 1
+                },
+                "404": {
+                    "viewName": "404",
+                    "transition": "show"
                 }
             }
         },

@@ -1,0 +1,10 @@
+<mvc:View
+   controllerName="ecole.famille.controller.NoLogin"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <MessagePage
+      title="{i18n>NoLogin}"
+      text="{i18n>NoLogin.text}"
+      description="{i18n>NoLogin.description}"/>
+</mvc:View>
+
