@@ -42,6 +42,10 @@
             "famille": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/data.json"
+            },
+            "menu": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Menu.json"
             }
         },
         "routing": {
@@ -72,6 +76,10 @@
                 },
                 "nologin": {
                     "viewName": "NoLogin",
+                    "transition": "show"
+                },
+                "menu": {
+                    "viewName": "Menu",
                     "transition": "show"
                 }
             }

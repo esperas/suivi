@@ -1,0 +1,30 @@
+<mvc:View
+   controllerName="ecole.famille.controller.Menu"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+
+    <Page
+        id="suivi"
+        class="sapUiStdPage"
+        >
+    <Panel >
+        <ObjectHeader
+                      title="{i18n>Menu.title}"
+                      intro="{i18n>meu.j} {famille>/famille}"
+                      >
+        </ObjectHeader>
+        <List id="MenuList"
+                items="{ path: 'menu>/Menu' }">
+              <items>
+                <ObjectListItem
+                	title="{menu>title}"
+				    press="onPDF"
+				    type="Navigation">
+			    </ObjectListItem>
+            </items>
+        </List>
+    </Panel>
+    </Page>
+
+
+</mvc:View>

@@ -46,14 +46,15 @@
 			                }"
 				    numberUnit="{famille>/currency}"
 				    type="{= ${famille>piece} > 0 ? 'Navigation' : 'Inactive'  }">
-				    <firstStatus>
+-				    <firstStatus>
 					    <ObjectStatus
 					        visible="{ path: 'famille>paiement',
 		                                      formatter: '.formatter.isStatusVisible'}"
 						    text="{ path: 'famille>paiement',
 		                                      formatter: '.formatter.isStatusText'}"
 						    state="{ path: 'famille>paiement',
-		                                      formatter: '.formatter.isStatusState'}" />
+		                                      formatter: '.formatter.isStatusState'}"
+                                      />
 				    </firstStatus>
 				    <attributes>
 					    <ObjectAttribute text="Le {famille>date}" />
