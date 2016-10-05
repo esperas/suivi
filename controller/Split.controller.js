@@ -5,5 +5,6 @@ sap.ui.define([
     "use strict";
     return Controller.extend("ecole.famille.controller.Split", {
 
+
     });
 });

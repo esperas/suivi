@@ -3,16 +3,18 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
-    <Page title="Test" class="sapUiResponsiveContentPadding">
+    <Page title="Test"
+          class="sapUiResponsiveContentPadding"
+          id="apropos">
     <Panel class="sapUiResponsiveMargin"
            width="auto"
-           headerText="A Propos">
+           headerText="A Propos de ce logiciel">
         <content>
             <l:VerticalLayout class="sapUiSmallMargin" >
                 <Text  text="Application de suivi des paiements de l'école Calandreta de la Dauna" />
                 <Text text=""/>
                 <Text  text="L'accès à cette application est réservé aux parents de l'école" />
-                <Text  text="Le lien de connexion est à demandé au trésorier de l'école à l'adresse suivante :" />
+                <Text  text="Le lien de connexion est à demander au trésorier de l'école à l'adresse suivante :" />
                 <Link
 						text="Adresse mail du trésorier"
 						emphasized="true"

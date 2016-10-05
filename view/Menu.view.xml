@@ -8,19 +8,20 @@
         class="sapUiStdPage"
         >
     <Panel >
-        <ObjectHeader
-                      title="{i18n>Menu.title}"
-                      intro="{famille>/famille}"
-                      >
-        </ObjectHeader>
         <List id="MenuList"
                 items="{ path: 'menu>/Menu' }">
               <items>
                 <ObjectListItem
-                	title="{menu>title}"
-				    press="onPDF"
+                    title="{menu>title}"
+				    press="navToMenu"
 				    type="Navigation">
+
+                    <attributes>
+					   <ObjectAttribute text="{menu>description}" />
+				    </attributes>
+
 			    </ObjectListItem>
+
             </items>
         </List>
     </Panel>

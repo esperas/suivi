@@ -7,12 +7,14 @@
 
 			<Page title="Association Los Amics de la Calandreta de la Dauna">
 				<SplitContainer
-						id="SplitContDemo"
+						id="Split"
 						initialDetail="suivi"
 						initialMaster="famille"
 						mode="Popover">
 					<detailPages>
 						<mvc:XMLView viewName="ecole.famille.view.Suivi" />
+                        <mvc:XMLView viewName="ecole.famille.view.Famille" />
+                        <mvc:XMLView viewName="ecole.famille.view.Apropos" />
 					</detailPages>
 					<masterPages>
 						<mvc:XMLView viewName="ecole.famille.view.Menu" />
