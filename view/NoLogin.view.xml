@@ -6,5 +6,6 @@
       title="{i18n>NoLogin}"
       text="{i18n>NoLogin.text}"
       description="{i18n>NoLogin.description}"/>
+
 </mvc:View>
 

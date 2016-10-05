@@ -69,6 +69,10 @@
                 "404": {
                     "viewName": "404",
                     "transition": "show"
+                },
+                "nologin": {
+                    "viewName": "NoLogin",
+                    "transition": "show"
                 }
             }
         },
