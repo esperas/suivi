@@ -46,7 +46,7 @@
 			                }"
 				    numberUnit="{famille>/currency}"
 				    type="{= ${famille>piece} > 0 ? 'Navigation' : 'Inactive'  }">
--				    <firstStatus>
+				    <firstStatus>
 					    <ObjectStatus
 					        visible="{ path: 'famille>paiement',
 		                                      formatter: '.formatter.isStatusVisible'}"

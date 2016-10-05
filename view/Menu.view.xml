@@ -10,7 +10,7 @@
     <Panel >
         <ObjectHeader
                       title="{i18n>Menu.title}"
-                      intro="{i18n>meu.j} {famille>/famille}"
+                      intro="{famille>/famille}"
                       >
         </ObjectHeader>
         <List id="MenuList"
