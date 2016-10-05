@@ -56,11 +56,11 @@
             "routes": [{
                 "pattern": "",
                 "name": "init",
-                "target": "apropos"
+                "target": "home"
             }],
             "targets": {
-                "apropos": {
-                    "viewName": "Apropos",
+                "home": {
+                    "viewName": "Split",
                     "viewLevel" : 1
                 }
             }

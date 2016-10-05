@@ -10,18 +10,20 @@
         <content>
             <l:VerticalLayout class="sapUiSmallMargin" >
                 <Text  text="Application de suivi des paiements de l'école Calandreta de la Dauna" />
+                <Text text=""/>
                 <Text  text="L'accès à cette application est réservé aux parents de l'école" />
                 <Text  text="Le lien de connexion est à demandé au trésorier de l'école à l'adresse suivante :" />
                 <Link
 						text="Adresse mail du trésorier"
 						emphasized="true"
 						href="mailto:tresorier@calandreta-dauna.fr" />
+                <Text text=""/>
                 <Text  text="Cette application est sous licence GNU LGPL3 et le code source est disponible à l'adresse suivante:"/>
                 <Link
 						text="Dépôt GitHub"
 						emphasized="true"
 						href="https://github.com/esperas/suivi" />
-				<Text text="V0.1.0" />		
+				<Text text="V0.1.2" />
             </l:VerticalLayout>
         </content>
     </Panel>

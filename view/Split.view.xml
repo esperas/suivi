@@ -1,0 +1,26 @@
+<mvc:View controllerName="ecole.famille.controller.Split"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          displayBlock="true">
+
+
+			<Page title="Association Los Amics de la Calandreta de la Dauna">
+				<SplitContainer
+						id="SplitContDemo"
+						initialDetail="suivi"
+						initialMaster="famille"
+						mode="Popover">
+					<detailPages>
+						<mvc:XMLView viewName="ecole.famille.view.Suivi" />
+					</detailPages>
+					<masterPages>
+						<mvc:XMLView viewName="ecole.famille.view.Famille" />
+					</masterPages>
+				</SplitContainer>
+			</Page>
+
+
+
+
+</mvc:View>
