@@ -32,6 +32,10 @@ sap.ui.define([
                 bundleName : "ecole.famille.i18n.i18n"
             });
             this.setModel(i18nModel, "i18n");
+
+
+            // create the views based on the url/hash
+            this.getRouter().initialize();
         }
     });
 });

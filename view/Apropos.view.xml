@@ -3,6 +3,7 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Test" class="sapUiResponsiveContentPadding">
     <Panel class="sapUiResponsiveMargin"
            width="auto"
            headerText="A Propos">
@@ -24,5 +25,6 @@
             </l:VerticalLayout>
         </content>
     </Panel>
+    </Page>
 </mvc:View>
 

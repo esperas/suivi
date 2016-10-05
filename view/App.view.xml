@@ -1,6 +1,10 @@
-<mvc:View controllerName="ecole.famille.controller.App" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
-	<App>
-		<pages>
+<mvc:View controllerName="ecole.famille.controller.App"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          displayBlock="true">
+	<App id="app">
+<!--		<pages>
 			<Page title="Association Los Amics de la Calandreta de la Dauna">
 				<SplitContainer
 						id="SplitContDemo" 
@@ -16,12 +20,7 @@
 				</SplitContainer>
 			</Page>
 
-
-		<!--	<Page title="{i18n>homePageTitle}">
-				<mvc:XMLView viewName="ecole.famille.view.Famille" />
-				<mvc:XMLView viewName="ecole.famille.view.Suivi" />
-			</Page> -->
-		</pages>
+		</pages>-->
 	</App>
 
 </mvc:View>

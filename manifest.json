@@ -12,7 +12,7 @@
         }
     },
     "sap.ui": {
-        "_version": "1.1.0",
+        "_version": "0.1.1",
         "technology": "UI5",
         "deviceTypes": {
             "desktop": true,
@@ -24,7 +24,7 @@
         ]
     },
     "sap.ui5": {
-        "_version": "1.1.0",
+        "_version": "0.1.2",
         "rootView": "ecole.famille.view.App",
         "dependencies": {
             "minUI5Version": "1.30",
@@ -42,6 +42,27 @@
             "famille": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/data.json"
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "ecole.famille.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "transition": "slide"
+            },
+            "routes": [{
+                "pattern": "",
+                "name": "init",
+                "target": "apropos"
+            }],
+            "targets": {
+                "apropos": {
+                    "viewName": "Apropos",
+                    "viewLevel" : 1
+                }
             }
         },
         "resources": {
