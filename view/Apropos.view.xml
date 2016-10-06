@@ -14,7 +14,7 @@
                 <Text  text="Application de suivi des paiements de l'école Calandreta de la Dauna" />
                 <Text text=""/>
                 <Text  text="L'accès à cette application est réservé aux parents de l'école" />
-                <Text  text="Le lien de connexion est à demander au trésorier de l'école à l'adresse suivante :" />
+                <Text  text="Le lien de connexion est à demander au trésorier de l'école à l'adresse mail suivante :" />
                 <Link
 						text="Adresse mail du trésorier"
 						emphasized="true"

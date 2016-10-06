@@ -1,26 +1,13 @@
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+# Description
+Cette application est utilisé dans le cadre de la gestion d'une association.
+L'association fournie des services divers.
+Des factures sont émises dans le cadre de l'activité de cette association vers les membres.
+Cette aplication permet aux membres de l'association de suivre leurs factures et leurs paiements.
+# Architecture
+L'application de suivi n'est que la partie frontend.
+Le backend est actuellement un tableau Calc OpenOffice avec des macros exportant les données au format JSON.
+Les fichiers JSON correspondant sont ensuite transférés sur le serveur web pour être utilisé par l'appli.
+# Technologie
+Cette appli est codé en Javascript avec le framework openUI5.
 
 
-Hi there! Welcome to Cloud9 IDE!
-
-To get you started, we included a small hello world application.
-
-1) Open the hello-world.html file
-
-2) Click on the Preview button to open a live preview pane
-
-3) Make some changes to the file, save, watch the preview, and have fun!
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
-To watch some training videos, visit http://www.youtube.com/user/c9ide

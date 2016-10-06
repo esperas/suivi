@@ -13,6 +13,6 @@
         "title": "A Propos",
         "icon": "sap-icon://sys-help",
         "targetPage": "Apropos",
-        "description": "Pour curieux"
+        "description": "Pour les curieux"
     }]
 }
