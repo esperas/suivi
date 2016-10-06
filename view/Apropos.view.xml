@@ -3,7 +3,7 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
-    <Page title="Test"
+    <Page
           class="sapUiResponsiveContentPadding"
           id="apropos">
     <Panel class="sapUiResponsiveMargin"

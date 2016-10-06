@@ -5,7 +5,22 @@
           displayBlock="true">
 
 
-			<Page title="Association Los Amics de la Calandreta de la Dauna">
+    <Page title="Association Los Amics de la Calandreta de la Dauna">
+        <customHeader>
+		  <Bar>
+		      <contentLeft>
+		          <!-- Rien pour -->
+		      </contentLeft>
+
+		      <contentMiddle>
+                  <Text text = "Association Los Amics de la Calandreta de la Dauna"></Text>
+		      </contentMiddle>
+
+              <contentRight>
+                  <Button icon="sap-icon://sys-help" press="onHelp" ariaLabelledBy="editButtonLabel"/>
+              </contentRight>
+            </Bar>
+		</customHeader>
 				<SplitContainer
 						id="Split"
 						initialDetail="suivi"

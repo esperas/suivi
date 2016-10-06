@@ -6,13 +6,10 @@ sap.ui.define([
 ], function (Controller, MessageToast, formatter, JSONModel) {
     "use strict";
     return Controller.extend("ecole.famille.controller.Suivi", {
-        formatter : formatter
-/*
-        onPDF : function(evt) {
-            var obj = evt.getSource().getBindingContext("famille").getObject();
-            console.log(obj);
-            var url = "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + obj.piece + ".pdf";
-            window.open(url);
-        }*/
-    });
+        formatter : formatter,
+
+        downloadRIB : function(evt) {
+            window.open("./json/facture/RIB.pdf");
+        }
+    })
 });

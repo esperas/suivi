@@ -52,19 +52,44 @@ sap.ui.define([], function () {
         },
         isStatusState : function (status) {
             if (typeof status == 'undefined') { 
-                return "None";
+                return sap.ui.core.ValueState.None;
             } else if (status=='N') { 
-                return "Warning";
+                return sap.ui.core.ValueState.Warning;
             } else if (status=='X') {
-                return "Success";
+                return sap.ui.core.ValueState.Success;
             } else if (status=='R') {
-                return "Error";
+                return sap.ui.core.ValueState.Error;
             } else {
-                return "None";
+                return sap.ui.core.ValueState.None;
             }
 
             ;
-        }        
+        },
+        isRIBvisible : function () {
+            // Cette fonction calcule s'il y a un libellé virement d'effectuer.
+            // Si ce n'est pas le cas, le RIB est afficher directement
+            // Sinon, le RIB est "masquer" dans un bouton [...]
+            var result = sap.m.OverflowToolbarPriority.Low;
+            var oModel = this.getView().getParent().getParent().getModel("famille");
+
+            if (!oModel) { return result };  // Low
+            if (!oModel.oData) {return result };  // Low
+            if (!oModel.oData.suivi) {return result }; // Low
+            var regex = /virement/i;
+            var i;
+            var len = oModel.oData.suivi.length;
+            var target;  //sId de la page de détail recherché
+            for (i = 0; i < len; i++) {
+                console.log(oModel.oData.suivi[i].libelle);
+                var flag = regex.test(oModel.oData.suivi[i].libelle);
+                if (flag==true) { result = sap.m.OverflowToolbarPriority.AlwaysOverflow; };
+                //if (regex.test(oModel.oData.suivi[i].libelle)) { result = "AlwaysOverflow" };
+
+            }
+            console.log(result);
+            return result;
+            return "Low";
+        }
 
 	};
 });

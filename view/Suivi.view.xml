@@ -6,12 +6,47 @@
     <Page 
         id="suivi" 
         class="sapUiStdPage" 
-        title="Suivi des paiements famille {famille>/famille}"
-        >
+        title="Suivi des paiements">
+        <customHeader>
+		  <Bar>
+		      <contentLeft>
+                  <OverflowToolbar id="otb3">
+		            <Button text="RIB école" press="downloadRIB">
+			             <layoutData>
+				            <OverflowToolbarLayoutData priority="{ path: 'famille>/famille',
+		                                      formatter: '.formatter.isRIBvisible'}" />
+			             </layoutData>
+                    </Button>
+                  </OverflowToolbar>
+		      </contentLeft>
+
+		      <contentMiddle>
+                  <Text text = "Suivi des paiements"></Text>
+		      </contentMiddle>
+
+              <contentRight>
+                  <ObjectNumber
+                      number="{
+                               parts: [ {path: 'famille>/solde'}],
+                               formatter: '.formatter.soldeDisplay',
+			                   type: 'sap.ui.model.type.Currency',
+			                   formatOptions: {
+				                    showMeasure: true
+			                   }
+                              }"
+                    numberUnit="{path: 'famille>/currency'}"
+                    state="{= ${famille>/solde} >= 0 ? 'Success' : 'Error' }"/>
+              </contentRight>
+            </Bar>
+		</customHeader>
+
+
+
     <Panel >
         <ObjectHeader
-                      title="{i18n>SuiviPageTitle}"
+
                       intro="{i18n>maj} {famille>/maj}"
+                      title="Solde de vos paiements"
                       number="{
                                parts: [ {path: 'famille>/solde'}],
                                formatter: '.formatter.soldeDisplay',

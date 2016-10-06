@@ -1,4 +1,4 @@
-﻿{
+{
 "famille": "TEST","solde": "1.7000","nom": "Test toto et titi","maj": "15/09/2016"
 ,
 "currency": "EUR"
@@ -8,7 +8,7 @@
 "suivi": 
 [
 {
-"date": "26/08/2015","facture": "","reglement": "73.2500","libelle": "Virement","piece": "","paiement": "X", "currency":"EUR"
+"date": "26/08/2015","facture": "","reglement": "73.2500","libelle": "Virement","piece": "","paiement": "", "currency":"EUR"
 }
 ,
 {
@@ -24,15 +24,15 @@
 }
 ,
 {
-"date": "31/05/2015","facture": "53.6300","reglement": "","libelle": "Facture n° : 1011","piece": "","paiement": ""
+"date": "31/05/2015","facture": "53.6300","reglement": "","libelle": "Facture n° : 1011","piece": "","paiement": "X"
 }
 ,
 {
-"date": "28/05/2015","facture": "","reglement": "50.3600","libelle": "Virement","piece": "","paiement": "X"
+"date": "28/05/2015","facture": "","reglement": "50.3600","libelle": "Virement","piece": "","paiement": ""
 }
 ,
 {
-"date": "12/05/2015","facture": "","reglement": "47.0900","libelle": "Virement","piece": "","paiement": "X"
+"date": "12/05/2015","facture": "","reglement": "47.0900","libelle": "Virement","piece": "","paiement": ""
 }
 ,
 {
@@ -44,11 +44,11 @@
 }
 ,
 {
-"date": "17/03/2015","facture": "","reglement": "33.3400","libelle": "Virement","piece": "","paiement": "X"
+"date": "17/03/2015","facture": "","reglement": "33.3400","libelle": "Virement","piece": "","paiement": ""
 }
 ,
 {
-"date": "09/03/2015","facture": "","reglement": "71.2400","libelle": "Virement","piece": "","paiement": "X"
+"date": "09/03/2015","facture": "","reglement": "71.2400","libelle": "Virement","piece": "","paiement": ""
 }
 ,
 {
@@ -60,7 +60,7 @@
 }
 ,
 {
-"date": "30/01/2015","facture": "","reglement": "40.0000","libelle": "Rem 3956435","piece": "","paiement": "X"
+"date": "30/01/2015","facture": "","reglement": "40.0000","libelle": "Rem 3956435","piece": "","paiement": ""
 }
 ,
 {

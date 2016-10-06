@@ -6,6 +6,7 @@
     <Page
         id="suivi"
         class="sapUiStdPage"
+        title="Famille {famille>/famille}"
         >
     <Panel >
         <List id="MenuList"
