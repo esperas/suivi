@@ -19,5 +19,13 @@
             </l:VerticalLayout>
         </content>
     </Panel>
+        <l:VerticalLayout class="sapUiSmallMargin" >
+            <Text text="Ces informations sont utilisés dans votre facture." />
+            <Text text="Si elles ne sont pas correctes, merci d'envoyer un mail au trésorier pour corriger les données." />
+            <Link
+                  text="Adresse mail du trésorier"
+                  emphasized="true"
+                  href="mailto:tresorier@calandreta-dauna.fr" />
+        </l:VerticalLayout>
     </Page>
 </mvc:View>
