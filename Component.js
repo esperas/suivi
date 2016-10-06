@@ -43,6 +43,13 @@ sap.ui.define([
             this.getRouter().initialize();
 
             var parent = jQuery.sap.getUriParameters().get("parent");
+
+            var regex = /[A-Z0-9]{10}$/;
+
+            if (!regex.test(parent)) {
+                this.getRouter().getTargets().display("nologin");
+            };
+
             parent = "json/" + parent + ".json";
             //Mise à jour du model avec les "vrai" données
 
