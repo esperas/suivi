@@ -3,7 +3,7 @@
         "title": "Suivi des paiements",
         "icon": "sap-icon://list",
         "targetPage": "Suivi",
-        "description": "N'oubliez pas le chéquier !"
+        "description": "N'oubliez pas votre chéquier !"
     }, {
         "title": "Vos Coordonnées",
         "icon": "sap-icon://favorite",

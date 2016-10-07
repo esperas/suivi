@@ -10,6 +10,13 @@ sap.ui.define([
 
         downloadRIB : function(evt) {
             window.open("./json/facture/RIB.pdf");
+        },
+        
+        navBack : function() {
+            var oSplitApp = this.getView().getParent().getParent();
+            var oMaster = oSplitApp.getMasterPages()[0];
+            oSplitApp.toMaster(oMaster, "slide");
         }
+        
     })
 });

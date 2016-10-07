@@ -4,7 +4,7 @@
    xmlns:mvc="sap.ui.core.mvc">
 
     <Page
-        id="suivi"
+        id="menu"
         class="sapUiStdPage"
         title="Famille {famille>/famille}"
         >

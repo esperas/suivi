@@ -1,9 +1,9 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-
-    "sap/ui/model/resource/ResourceModel"
-], function (UIComponent, JSONModel,  ResourceModel) {
+    "sap/ui/model/resource/ResourceModel",
+	"sap/ui/Device"
+], function (UIComponent, JSONModel,  ResourceModel, Device) {
     "use strict";
     return UIComponent.extend("ecole.famille.Component", {
         metadata : {
@@ -67,7 +67,13 @@ sap.ui.define([
             });
             this.setModel(i18nModel, "i18n");
 
-        }
+			// set device model
+			var oDeviceModel = new JSONModel(Device);
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			this.setModel(oDeviceModel, "device");
+
+        },
+       
 
 
 

@@ -6,6 +6,7 @@ sap.ui.define([
 ], function (Controller, MessageToast, formatter, JSONModel) {
     "use strict";
     return Controller.extend("ecole.famille.controller.Famille", {
- 
+       
+
     });
 });

@@ -6,7 +6,9 @@
     <Page 
         id="famille" 
         class="sapUiStdPage" 
-        title="Adresse">
+        title="Adresse"
+        showNavButton="{device>/system/phone}"
+		navButtonPress="navBack">
     <Panel class="sapUiResponsiveMargin"
            width="auto"
            headerText="Famille : {famille>/famille}">

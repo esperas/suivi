@@ -24,15 +24,15 @@
 				<SplitContainer
 						id="Split"
 						initialDetail="suivi"
-						initialMaster="famille"
-						mode="Popover">
-					<detailPages>
-						<mvc:XMLView viewName="ecole.famille.view.Suivi" />
-                        <mvc:XMLView viewName="ecole.famille.view.Famille" />
-                        <mvc:XMLView viewName="ecole.famille.view.Apropos" />
+						initialMaster="menu"
+						mode="PopoverMode">
+					<detailPages >
+						<mvc:XMLView id="suivi" viewName="ecole.famille.view.Suivi" />
+                        <mvc:XMLView id="famille" viewName="ecole.famille.view.Famille" />
+                        <mvc:XMLView id="apropos" viewName="ecole.famille.view.Apropos" />
 					</detailPages>
 					<masterPages>
-						<mvc:XMLView viewName="ecole.famille.view.Menu" />
+						<mvc:XMLView id="menu" viewName="ecole.famille.view.Menu" />
 					</masterPages>
 				</SplitContainer>
 			</Page>
