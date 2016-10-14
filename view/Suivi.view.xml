@@ -83,7 +83,8 @@
 			                                    }
 			                }"
 				    numberUnit="{famille>/currency}"
-				    type="{= ${famille>piece} > 0 ? 'Navigation' : 'Inactive'  }">
+				    type="{ path: 'famille>piece',
+                            formatter: '.formatter.navigation'  }">
 				    <firstStatus>
 					    <ObjectStatus
 					        visible="{ path: 'famille>paiement',

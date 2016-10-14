@@ -32,6 +32,14 @@ sap.ui.define([], function () {
             }
             ;
         },
+        navigation : function (numPiece) {
+                if (numPiece) {
+                    return sap.m.ListType.Navigation;
+                } else {
+                    return sap.m.ListType.Active;
+                };
+
+        },
         isStatusText : function (status) {
 
             // read msg from i18n model
@@ -43,6 +51,8 @@ sap.ui.define([], function () {
                 return oBundle.getText("factureStatus.new");
             } else if (status=='X') {
                 return oBundle.getText("factureStatus.paied");
+            } else if (status=='P') {
+                return oBundle.getText("factureStatus.partial");
             } else if (status=='R') {
                 return oBundle.getText("factureStatus.late");
             }
@@ -53,7 +63,7 @@ sap.ui.define([], function () {
                 return sap.ui.core.ValueState.None;
             } else if (status=='N') { 
                 return sap.ui.core.ValueState.Warning;
-            } else if (status=='X') {
+            } else if (status=='X'||status=='P') {
                 return sap.ui.core.ValueState.Success;
             } else if (status=='R') {
                 return sap.ui.core.ValueState.Error;
