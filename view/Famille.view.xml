@@ -1,5 +1,5 @@
 <mvc:View
-          controllerName="ecole.famille.controller.Suivi"
+          controllerName="ecole.famille.controller.Famille"
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
