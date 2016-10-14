@@ -13,10 +13,10 @@
            headerText="{i18n>apropos.titre}">
         <content>
             <l:VerticalLayout class="sapUiSmallMargin" >
-                <Text  text="Application de suivi des paiements de {config>/assoName}" />
+                <Text  text="{i18n>apropos.infos1} {config>/assoName}" />
                 <Text text=""/>
-                <Text  text="{i18n>apropos.infos1}" />
                 <Text  text="{i18n>apropos.infos2}" />
+                <Text  text="{i18n>apropos.infos3}" />
                 <Link
 						text="{i18n>adresse.mail}"
 						emphasized="true"
