@@ -2,8 +2,8 @@ sap.ui.require([
 	"sap/ui/test/opaQunit"
 ], function () {
 	"use strict";
-	QUnit.module("Navigation");
-	opaTest("Should open the hello dialog", function (Given, When, Then) {
+	QUnit.module("Connexion");
+	opaTest("Connexion sans Login", function (Given, When, Then) {
 		// Arrangements
 		Given.iStartMyAppInAFrame("../../index.html");
 		//Actions
@@ -13,14 +13,28 @@ sap.ui.require([
 		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
 			and.iTeardownMyAppFrame();
 	});
-    opaTest("Should not open the hello dialog", function (Given, When, Then) {
+    QUnit.module("Navigation");
+    opaTest("Navigation sur Page Adresse", function (Given, When, Then) {
 		// Arrangements
 		Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 		//Actions
 
-        When.onTheAppPage.iPressListItem();
+        When.onTheMenuPage.iPressListItem("Famille");
 		// Assertions
-		Then.onTheAppPage.theAdressScreenShouldBeDisplay().
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Famille","famille");
+	});
+    opaTest("Navigation sur Page A Propos", function (Given, When, Then) {
+		// Arrangements
+        When.onTheMenuPage.iPressListItem("Apropos");
+		// Assertions
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Apropos","apropos");
+
+	});
+    opaTest("Navigation sur Page Suivi", function (Given, When, Then) {
+		// Arrangements
+        When.onTheMenuPage.iPressListItem("Suivi");
+		// Assertions
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Suivi","suivi").
 			and.iTeardownMyAppFrame();
 	});
 });

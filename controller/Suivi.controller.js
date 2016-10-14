@@ -16,7 +16,12 @@ sap.ui.define([
             var oSplitApp = this.getView().getParent().getParent();
             var oMaster = oSplitApp.getMasterPages()[0];
             oSplitApp.toMaster(oMaster, "slide");
+        },
+        onPDF : function(evt) {
+            var obj = evt.getSource().getBindingContext("famille").getObject();
+            //console.log(obj);
+            var url = "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + obj.piece + ".pdf";
+            window.open(url);
         }
-        
     })
 });

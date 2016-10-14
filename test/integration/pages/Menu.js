@@ -6,20 +6,25 @@ sap.ui.require([
 	],
 	function (Opa5, AggregationLengthEquals, PropertyStrictEquals, Press) {
 		"use strict";
-		var sViewName = "App",
+		var sViewName = "ecole.famille.view.Menu",
 			sTableId = "table";
 		Opa5.createPageObjects({
-			onTheAppPage: {
+			onTheMenuPage: {
 
 				actions: {
-                    iPressListItem: function() {
+                    iPressListItem: function(pId) {
                        return this.waitFor({
-                              viewName: "ecole.famille.view.Menu",
-
+                              viewName: sViewName,
 						      controlType: "sap.m.ObjectListItem",
-						      success: function (aItems) {
-							     aItems[1].$().trigger("tap");
-						  },
+						      success: function (oItems) {
+                                  for(var i = 0; i < oItems.length; i++) {
+                                    var obj = oItems[i].getBindingContext("menu").getObject();
+                                    if (obj.targetPage==pId) {
+                                        oItems[i].$().trigger("tap");
+                                    }
+                                  }
+                                   // oItems.$().trigger("tap");
+                              },
 						errorMessage: "Did not find the Item List on the app page"
 					});
                         //Rien pour l'instant
@@ -49,10 +54,10 @@ sap.ui.require([
 						  errorMessage: "Affichage de l'écran ok"
 					    });
 					},
-                    thisScreenShouldBeDisplay: function (pView, pId) {
+                    theAdressScreenShouldBeDisplay: function () {
                         return this.waitFor({
-                          viewName: pView,
-                          id: pId,
+                          viewName: "ecole.famille.view.Famille",
+                          id:"famille",
 						  controlType: "sap.m.Page",
 						  success: function () {
 							// we set the view busy, so we need to query the parent of the app
