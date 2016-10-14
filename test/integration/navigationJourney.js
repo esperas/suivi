@@ -13,6 +13,16 @@ sap.ui.require([
 		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
 			and.iTeardownMyAppFrame();
 	});
+    opaTest("Connexion avec Login inexistant", function (Given, When, Then) {
+		// Arrangements
+		Given.iStartMyAppInAFrame("../../index.html?parent=AQWXSZED");
+		//Actions
+
+        //When.onTheAppPage.iPressTheSayHelloWithDialogButton();
+		// Assertions
+		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
+			and.iTeardownMyAppFrame();
+	});
     QUnit.module("Navigation");
     opaTest("Navigation sur Page Adresse", function (Given, When, Then) {
 		// Arrangements
@@ -37,4 +47,11 @@ sap.ui.require([
 		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Suivi","suivi").
 			and.iTeardownMyAppFrame();
 	});
+    QUnit.module("Bouton RIB");
+    opaTest("Navigation sur Page Suivi", function (Given, When, Then) {
+        Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
+
+        Then.onTheSuiviPage.RIBShouldBeVisible(false).
+			and.iTeardownMyAppFrame();
+    });
 });
