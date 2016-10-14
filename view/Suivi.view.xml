@@ -5,15 +5,14 @@
           xmlns:mvc="sap.ui.core.mvc">
     <Page 
         id="suivi" 
-        class="sapUiStdPage" 
-        title="Suivi des paiements">
+        class="sapUiStdPage" >
         <customHeader>
 		  <Bar>
 		      <contentLeft>
 		          
                   <OverflowToolbar id="otb3">
                     <Button id="navButton" icon="sap-icon://nav-back" visible="{device>/system/phone}" press="navBack" />
-		            <Button id="RIB" text="RIB école" press="downloadRIB">
+		            <Button id="RIB" text="{i18n>suivi.RIB}" press="downloadRIB">
 			             <layoutData>
 				            <OverflowToolbarLayoutData priority="{ path: 'famille>/famille',
 		                                      formatter: '.formatter.isRIBvisible'}" />
@@ -23,7 +22,7 @@
 		      </contentLeft>
 
 		      <contentMiddle>
-                  <Text text = "Suivi des paiements"></Text>
+                  <Text text = "{i18n>suivi.titre}"></Text>
 		      </contentMiddle>
 
               <contentRight>
@@ -47,8 +46,8 @@
     <Panel >
         <ObjectHeader
 
-                      intro="{i18n>maj} {famille>/maj}"
-                      title="Solde de vos paiements"
+                      intro="{i18n>suivi.maj} {famille>/maj}"
+                      title="{i18n>suivi.panel.titre}"
                       number="{
                                parts: [ {path: 'famille>/solde'}],
                                formatter: '.formatter.soldeDisplay',
@@ -94,7 +93,7 @@
                                       />
 				    </firstStatus>
 				    <attributes>
-					    <ObjectAttribute text="Le {famille>date}" />
+					    <ObjectAttribute text="{i18n>suivi.list.le} {famille>date}" />
 				    </attributes>
 			    </ObjectListItem>
        

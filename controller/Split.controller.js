@@ -6,7 +6,8 @@ sap.ui.define([
     return Controller.extend("ecole.famille.controller.Split", {
 
         onHelp : function(evt) {
-            window.open("http://wiki.calandreta-dauna.fr/doku.php?id=suivi");
+            var oConfig = this.getView().getModel("config");
+            window.open(oConfig.oData.urlHelp);
         }
     });
 });

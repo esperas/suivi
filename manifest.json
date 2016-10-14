@@ -1,7 +1,7 @@
 {
-    "_version": "1.1.0",
+    "_version": "0.1.2",
     "sap.app": {
-        "_version": "1.1.0",
+        "_version": "0.1.2",
         "id": "ecole.famille",
         "type": "application",
         "i18n": "i18n/i18n.properties",

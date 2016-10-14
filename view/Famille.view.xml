@@ -6,12 +6,12 @@
     <Page 
         id="famille" 
         class="sapUiStdPage" 
-        title="Adresse"
+        title="{i18n>adresse.titre}"
         showNavButton="{device>/system/phone}"
 		navButtonPress="navBack">
     <Panel class="sapUiResponsiveMargin"
            width="auto"
-           headerText="Famille : {famille>/famille}">
+           headerText="{i18n>famille} : {famille>/famille}">
         <content>
             <l:VerticalLayout class="sapUiSmallMargin" >
                 <Text  text="{famille>/nom}" />
@@ -22,12 +22,12 @@
         </content>
     </Panel>
         <l:VerticalLayout class="sapUiSmallMargin" >
-            <Text text="Ces informations sont utilisés dans votre facture." />
-            <Text text="Si elles ne sont pas correctes, merci d'envoyer un mail au trésorier pour corriger les données." />
+            <Text text="{i18n>adresse.info1}" />
+            <Text text="{i18n>adresse.info2}" />
             <Link
-                  text="Adresse mail du trésorier"
+                  text="{i18n>adresse.mail}"
                   emphasized="true"
-                  href="mailto:tresorier@calandreta-dauna.fr" />
+                  href="{config>/mailToTresorier}" />
         </l:VerticalLayout>
     </Page>
 </mvc:View>

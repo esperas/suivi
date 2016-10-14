@@ -5,8 +5,8 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel"
 ], function (Controller, MessageToast, formatter, JSONModel) {
     "use strict";
-    return Controller.extend("ecole.famille.controller.Suivi", {
- 
+    return Controller.extend("ecole.famille.controller.Apropos", {
+
       
     });
 });

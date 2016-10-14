@@ -2,15 +2,6 @@ sap.ui.define([], function () {
 	"use strict";
 
 	return {
-        formatButton: function (sPiece) {
-            if (sPiece) { return true};
-            return false;
-
-        },
-        isNotEmpty: function (sValue) {
-            if (sValue) { return true};
-            return false;
-        },
         montant: function (facture, reglement) {
             // Remvoi le montant de la facture en négatif sinon le règlement en positif
             var montant = facture || reglement;
@@ -22,8 +13,11 @@ sap.ui.define([], function () {
         },
         
         soldeDisplay : function (montant) {
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+
             var value = sap.ui.core.format.NumberFormat.getCurrencyInstance();
-            return  "Solde : " + value.format(montant);
+            //var res = oBundle.getText("solde.montant");
+            return  oBundle.getText("solde.montant") + value.format(montant);
             
         },
         isStatusVisible : function (status) {
@@ -39,14 +33,18 @@ sap.ui.define([], function () {
             ;
         },
         isStatusText : function (status) {
+
+            // read msg from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+
             if (typeof status == 'undefined') { 
                 return null;
             } else if (status=='N') { 
-                return "Nouvelle facture";
+                return oBundle.getText("factureStatus.new");
             } else if (status=='X') {
-                return "Facture réglé";
+                return oBundle.getText("factureStatus.paied");
             } else if (status=='R') {
-                return "Facture en retard";
+                return oBundle.getText("factureStatus.late");
             }
             ;
         },

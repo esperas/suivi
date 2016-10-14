@@ -44,7 +44,7 @@ sap.ui.require(
 				this._oResourceModel.destroy();
 			}
 		});
-		QUnit.test("Should return the occitan text texts", function (assert) {
+		QUnit.test("Should return the occitan texts", function (assert) {
 			// Arrange
 			var	oViewStub = {
 				getModel: this.stub().withArgs("i18n").returns(this._oResourceModel)

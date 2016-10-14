@@ -5,7 +5,7 @@
           displayBlock="true">
 
 
-    <Page title="Association Los Amics de la Calandreta de la Dauna">
+    <Page>
         <customHeader>
 		  <Bar>
 		      <contentLeft>
@@ -13,7 +13,7 @@
 		      </contentLeft>
 
 		      <contentMiddle>
-                  <Text text = "Association Los Amics de la Calandreta de la Dauna"></Text>
+                  <Text text = "{config>/assoName}"></Text>
 		      </contentMiddle>
 
               <contentRight>

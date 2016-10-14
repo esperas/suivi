@@ -38,9 +38,6 @@ sap.ui.require([
                     }
                 },
 				assertions: {
-					theTableShouldHaveAllEntries: function () {
-						return true;
-					},
 					theNoLoginScreenShouldBeDisplay: function () {
 						return this.waitFor({
 						  controlType: "sap.m.MessagePage",
@@ -51,17 +48,7 @@ sap.ui.require([
 						  errorMessage: "NoLogin Screen don't appears"
 					    });
 					},
-                    theNoLoginScreenShouldNotBeDisplay: function () {
-						return this.waitFor({
-						  controlType: "sap.m.MessagePage",
-						  success: function () {
-							// we set the view busy, so we need to query the parent of the app
-							//Opa5.assert.ok(false, "The NoLogin is open");
-						  },
-						  errorMessage: "Affichage de l'écran ok"
-					    });
-					},
-                    thisScreenShouldBeDisplay: function (pView, pId) {
+                   thisScreenShouldBeDisplay: function (pView, pId) {
                         return this.waitFor({
                           viewName: pView,
                           id: pId,

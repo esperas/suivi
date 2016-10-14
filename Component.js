@@ -44,6 +44,7 @@ sap.ui.define([
 
             var parent = jQuery.sap.getUriParameters().get("parent");
 
+            // L'identifiant est composé de 10 characters, majuscules et chiffres
             var regex = /[A-Z0-9]{10}$/;
 
             if (!regex.test(parent)) {
@@ -71,6 +72,14 @@ sap.ui.define([
 			var oDeviceModel = new JSONModel(Device);
 			oDeviceModel.setDefaultBindingMode("OneWay");
 			this.setModel(oDeviceModel, "device");
+
+            // Set App paramtre pour affichage dans A Propos
+            var oModel2 = new sap.ui.model.json.JSONModel("manifest.json");
+            this.setModel(oModel2,"app");
+
+            // Définir les paramètres de configuration de l'appli
+            var oConfig = new sap.ui.model.json.JSONModel("config.json");
+            this.setModel(oConfig,"config");
 
         },
        

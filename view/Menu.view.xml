@@ -6,7 +6,7 @@
     <Page
         id="menu"
         class="sapUiStdPage"
-        title="Famille {famille>/famille}"
+        title="{i18n>famille} {famille>/famille}"
         >
     <Panel >
         <List id="MenuList"
