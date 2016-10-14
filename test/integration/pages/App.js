@@ -23,6 +23,18 @@ sap.ui.require([
 						errorMessage: "Did not find the Item List on the app page"
 					});
                         //Rien pour l'instant
+                    },
+
+                    iPressButtonBack: function(sView, sId) {
+                         return this.waitFor({
+                            controlType: "sap.m.Page",
+                            id: sId,
+							viewName: sView,
+							success: function (oPage) {
+								oPage.$("navButton").trigger("tap");
+							},
+							errorMessage: "Did not find the nav button on object page"
+						});
                     }
                 },
 				assertions: {
@@ -60,6 +72,26 @@ sap.ui.require([
 						  },
 						  errorMessage: "Affichage de l'écran ok"
 					    });
+                    },
+                    URLShouldBe: function (sUrl){
+                        return this.waitFor({
+
+                          matchers : function() {
+                            var oWindow = sap.ui.test.Opa5.getWindow();
+                            if (oWindow.location.pathname==sUrl) {
+                              return "Bla";
+                            } else {
+                              return false;
+                            };
+                          },
+						  success: function (bla) {
+							// we set the view busy, so we need to query the parent of the app
+							Opa5.assert.ok(true, "URL correcte");
+						  },
+						  errorMessage: "Affichage de l'écran ok"
+					    });
+
+
                     }
 				}
 			}

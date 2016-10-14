@@ -12,15 +12,20 @@ sap.ui.require([
 			onTheSuiviPage: {
 
 				assertions: {
-                    RIBShouldBeVisible: function (pBoolean) {
+                    RIBShouldBeHide: function (pBoolean) {
                         return this.waitFor({
                           viewName: sViewName,
-                          controlType: "sap.m.Button",
+                          controlType: "sap.m.ToggleButton",  //On recherche le bouton Toggle, il doit apparaitre quand le bouton RIB disparait
+    /*                      matchers: function (oPage) {
+                              var oModel = sap.ui.getCore().getModel("famille");
+						      var sExpectedText = oPage.getModel("famille").getProperty("famille")
+				              return new PropertyStrictEquals({
+								name: "text",
+								value: sExpectedText
+							  }).isMatching(oPage);
+				          },     */
 						  success: function (buttons) {
-							for (var i = 0; i < buttons.length; i++) {
-
-                                Opa5.assert.ok(true, "The NoLogin is open");
-                            }
+                                Opa5.assert.ok(true, "Le bouton RIB est caché");
                           },
                         errorMessage: "Recherche de bouton impossible"
 

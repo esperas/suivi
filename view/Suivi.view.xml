@@ -12,7 +12,7 @@
 		      <contentLeft>
 		          
                   <OverflowToolbar id="otb3">
-                    <Button icon="sap-icon://nav-back" visible="{device>/system/phone}" press="navBack" />
+                    <Button id="navButton" icon="sap-icon://nav-back" visible="{device>/system/phone}" press="navBack" />
 		            <Button id="RIB" text="RIB école" press="downloadRIB">
 			             <layoutData>
 				            <OverflowToolbarLayoutData priority="{ path: 'famille>/famille',

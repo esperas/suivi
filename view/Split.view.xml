@@ -17,7 +17,7 @@
 		      </contentMiddle>
 
               <contentRight>
-                  <Button icon="sap-icon://sys-help" press="onHelp" ariaLabelledBy="editButtonLabel"/>
+                  <Button id="help" icon="sap-icon://sys-help" press="onHelp" ariaLabelledBy="editButtonLabel"/>
               </contentRight>
             </Bar>
 		</customHeader>

@@ -48,10 +48,12 @@ sap.ui.require([
 			and.iTeardownMyAppFrame();
 	});
     QUnit.module("Bouton RIB");
-    opaTest("Navigation sur Page Suivi", function (Given, When, Then) {
+    opaTest("Bouton RIB caché", function (Given, When, Then) {
         Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 
-        Then.onTheSuiviPage.RIBShouldBeVisible(false).
+        Then.onTheSuiviPage.RIBShouldBeHide().
 			and.iTeardownMyAppFrame();
     });
+
+
 });

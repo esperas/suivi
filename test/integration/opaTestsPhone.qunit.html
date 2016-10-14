@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OPA tests for Walkthrough</title>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta charset="utf-8">
+	<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-resourceroots='{
+			"ecole.famille.test.integration": "./"
+		}'>
+	</script>
+	<script>
+		jQuery.sap.require("sap.ui.qunit.qunit-css");
+		jQuery.sap.require("sap.ui.thirdparty.qunit");
+		jQuery.sap.require("sap.ui.qunit.qunit-junit");
+		jQuery.sap.require("sap.ui.test.opaQunit");
+		jQuery.sap.require("sap.ui.test.Opa5");
+		// pages
+		jQuery.sap.require("ecole.famille.test.integration.pages.App");
+        jQuery.sap.require("ecole.famille.test.integration.pages.Menu");
+        jQuery.sap.require("ecole.famille.test.integration.pages.Suivi");
+		// journeys
+		jQuery.sap.require("ecole.famille.test.integration.navigationPhone");
+	</script>
+</head>
+<body>
+<div id="content"></div>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+</body>
+</html>
