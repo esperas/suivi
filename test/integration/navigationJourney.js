@@ -8,7 +8,7 @@ sap.ui.require([
 		Given.iStartMyAppInAFrame("../../index.html");
 		//Actions
 
-        When.onTheAppPage.iPressTheSayHelloWithDialogButton();
+        //When.onTheAppPage.iPressTheSayHelloWithDialogButton();
 		// Assertions
 		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
 			and.iTeardownMyAppFrame();
@@ -18,9 +18,9 @@ sap.ui.require([
 		Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 		//Actions
 
-        When.onTheAppPage.iPressTheSayHelloWithDialogButton();
+        When.onTheAppPage.iPressListItem();
 		// Assertions
-		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
+		Then.onTheAppPage.theAdressScreenShouldBeDisplay().
 			and.iTeardownMyAppFrame();
 	});
 });
