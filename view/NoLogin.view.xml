@@ -3,6 +3,7 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    <MessagePage
+      id="nologin"
       title="{i18n>NoLogin}"
       text="{i18n>NoLogin.text}"
       description="{i18n>NoLogin.description}"/>
