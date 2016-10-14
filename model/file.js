@@ -21,7 +21,7 @@ sap.ui.define([], function () {
             }
             else {
                 console.log( 'file does not exist! status: ' + status );
-                window.cool.getTargets().display("nologin");
+                window.router.getTargets().display("nologin");
             }
         },
 

@@ -34,7 +34,7 @@ sap.ui.define([
             // Vérification des
             this.file.checkFile(parent);
 
-            window.cool = this.getRouter();
+            window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
 
             var oModel = this.getModel("famille");
 
