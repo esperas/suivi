@@ -30,6 +30,23 @@ sap.ui.require([
                         errorMessage: "Recherche de bouton impossible"
 
 					    });
+                    },
+                    RIBShouldBeVisible: function (pBoolean) {
+                        return this.waitFor({
+                          viewName: sViewName,
+                          id: "RIB",
+                          controlType: "sap.m.Button",  //On recherche le bouton RIB
+                          matchers: function (oButton) {
+                            var oObject = oButton;
+                            var oModel = oButton.getModel("famille");
+  						    if (oModel.oData.famille=="TEST2") {return true};
+                          },
+						  success: function (buttons) {
+                                Opa5.assert.ok(true, "Le bouton RIB est visible");
+                          },
+                        errorMessage: "Recherche de bouton impossible"
+
+					    });
                     }
 				}
 			}

@@ -12,7 +12,9 @@
 		          
                   <OverflowToolbar id="otb3">
                     <Button id="navButton" icon="sap-icon://nav-back" visible="{device>/system/phone}" press="navBack" />
-		            <Button id="RIB" text="{i18n>suivi.RIB}" press="downloadRIB">
+		            <Button id="RIB" text="{i18n>suivi.RIB}" press="downloadRIB"
+                            type="Emphasized"
+                            ariaDescribedBy="genericButtonDescription">
 			             <layoutData>
 				            <OverflowToolbarLayoutData priority="{ path: 'famille>/famille',
 		                                      formatter: '.formatter.isRIBvisible'}" />

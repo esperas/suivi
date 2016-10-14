@@ -1,3 +1,4 @@
 /json/*
 !/json/AZERTY1234.json
+!/json/AZERTY6666.json
 config.json

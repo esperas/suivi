@@ -52,6 +52,12 @@ sap.ui.require([
         Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 
         Then.onTheSuiviPage.RIBShouldBeHide().
+		  and.iTeardownMyAppFrame();
+    });   // Test non fiable, le bouton RIB disparait dans l'overflow mais est d'abord visible
+    opaTest("Bouton RIB visible", function (Given, When, Then) {
+        Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY6666");
+
+        Then.onTheSuiviPage.RIBShouldBeVisible().
 			and.iTeardownMyAppFrame();
     });
 
