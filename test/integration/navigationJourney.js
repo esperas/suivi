@@ -57,9 +57,23 @@ sap.ui.require([
     opaTest("Bouton RIB visible", function (Given, When, Then) {
         Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY6666");
 
-        Then.onTheSuiviPage.RIBShouldBeVisible().
-			and.iTeardownMyAppFrame();
+        Then.onTheSuiviPage.RIBShouldBeVisible();
+			//and.iTeardownMyAppFrame();
     });
+    QUnit.module("Navigation sur items du suivi");
+    opaTest("Facture N104 navigable", function (Given, When, Then) {
+        Then.onTheSuiviPage.listItemIsNavigable(1, "Navigation");
+
+    });
+    opaTest("Facture numérique navigable", function (Given, When, Then) {
+        Then.onTheSuiviPage.listItemIsNavigable(2, "Navigation");
+
+    });
+    opaTest("Virement non navigable", function (Given, When, Then) {
+        Then.onTheSuiviPage.listItemIsNavigable(0, "Active").
+		  and.iTeardownMyAppFrame();
+    });
+
 
 
 });

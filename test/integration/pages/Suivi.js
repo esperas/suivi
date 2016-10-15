@@ -47,8 +47,20 @@ sap.ui.require([
                         errorMessage: "Recherche de bouton impossible"
 
 					    });
-                    }
-				}
-			}
-		})
+                    },
+                    listItemIsNavigable: function (i, value) {
+                        return this.waitFor({
+                          viewName: sViewName,
+                          controlType: "sap.m.ObjectListItem",  //On recherche la propriété Navigation
+                          success: function (oItems) {
+
+                                Opa5.assert.ok((oItems[i].getType()==value), "L'action est correcte");
+                          },
+                        errorMessage: "Recherche de bouton impossible"
+
+					    });
+				    }
+			     }
+		      }
+        })
 	})

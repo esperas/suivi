@@ -29,8 +29,11 @@ sap.ui.define([], function () {
                 return true;
             } else if (status=='R') {
                 return true;
+            } else if (status=='P') {
+                return true;
+            } else {
+                return false;
             }
-            ;
         },
         navigation : function (numPiece) {
                 if (numPiece) {
@@ -45,7 +48,7 @@ sap.ui.define([], function () {
             // read msg from i18n model
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
 
-            if (typeof status == 'undefined') { 
+            if (typeof status == 'undefined'|| status == null ) {
                 return null;
             } else if (status=='N') { 
                 return oBundle.getText("factureStatus.new");
@@ -55,23 +58,22 @@ sap.ui.define([], function () {
                 return oBundle.getText("factureStatus.partial");
             } else if (status=='R') {
                 return oBundle.getText("factureStatus.late");
+            } else {
+                return null;
             }
-            ;
         },
         isStatusState : function (status) {
             if (typeof status == 'undefined') { 
                 return sap.ui.core.ValueState.None;
-            } else if (status=='N') { 
+            } else if (status=='N'||status=='P') {
                 return sap.ui.core.ValueState.Warning;
-            } else if (status=='X'||status=='P') {
+            } else if (status=='X') {
                 return sap.ui.core.ValueState.Success;
             } else if (status=='R') {
                 return sap.ui.core.ValueState.Error;
             } else {
                 return sap.ui.core.ValueState.None;
             }
-
-            ;
         },
         isRIBvisible : function () {
             // Cette fonction calcule s'il y a un libellé virement d'effectuer.
@@ -85,18 +87,15 @@ sap.ui.define([], function () {
             if (!oModel.oData.suivi) {return result }; // Low
             var regex = /virement/i;
             var i;
+            var flag;
             var len = oModel.oData.suivi.length;
             var target;  //sId de la page de détail recherché
             for (i = 0; i < len; i++) {
-                console.log(oModel.oData.suivi[i].libelle);
-                var flag = regex.test(oModel.oData.suivi[i].libelle);
+                //console.log(oModel.oData.suivi[i].libelle);
+                flag = regex.test(oModel.oData.suivi[i].libelle);
                 if (flag==true) { result = sap.m.OverflowToolbarPriority.AlwaysOverflow; };
-                //if (regex.test(oModel.oData.suivi[i].libelle)) { result = "AlwaysOverflow" };
-
             }
-            console.log(result);
             return result;
-            return "Low";
         }
 
 	};
