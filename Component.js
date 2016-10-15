@@ -31,7 +31,7 @@ sap.ui.define([
             parent = "json/" + parent + ".json";
             //Mise à jour du model avec les "vrai" données
 
-            // Vérification des
+            // Vérification de l'existence du fichier
             this.file.checkFile(parent);
 
             window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
@@ -39,7 +39,6 @@ sap.ui.define([
             var oModel = this.getModel("famille");
 
             oModel.loadData(parent);
-
 
             // set i18n model
             var i18nModel = new ResourceModel({
