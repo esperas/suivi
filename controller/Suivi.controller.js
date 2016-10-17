@@ -13,9 +13,8 @@ sap.ui.define([
         },
         
         navBack : function() {
-            var oSplitApp = this.getView().getParent().getParent();
-            var oMaster = oSplitApp.getMasterPages()[0];
-            oSplitApp.toMaster(oMaster, "slide");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("menu");
         },
         onPDF : function(evt) {
             var obj = evt.getSource().getBindingContext("famille").getObject();

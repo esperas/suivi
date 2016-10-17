@@ -1,14 +1,14 @@
 {
-    "_version": "0.1.2.1",
+    "_version": "0.1.2.2",
     "sap.app": {
-        "_version": "0.1.2.1",
+        "_version": "0.1.2.2",
         "id": "ecole.famille",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "applicationVersion": {
-            "version": "0.1.2.1"
+            "version": "0.1.2.2"
         }
     },
     "sap.ui": {
@@ -53,24 +53,70 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
                 "viewPath": "ecole.famille.view",
-                "controlId": "app",
-                "controlAggregation": "pages",
                 "transition": "slide",
                 "bypassed": {
+
                         "target": "404"
                 }
             },
-            "routes": [{
+            "routes": [
+                {
                 "pattern": "",
                 "name": "init",
-                "target": "home"
-            }],
+                "view": "Split",
+                "targetControl" : "app",
+                "targetAggregation" : "pages",
+                "subroutes" : [
+                    {
+                        "pattern" : "",
+                        "name" : "Menu",
+                        "view" : "Menu",
+                        "targetControl" : "Split",
+                        "targetAggregation" : "masterPages",
+                        "viewLevel" : 1,
+                        "subroutes" : [
+                            {
+                            "pattern" : "suivi/",
+                            "name" : "Suivi",
+                            "view" : "Suivi",
+                            "viewLevel" : 2,
+                            "targetAggregation" : "detailPages"
+                            },
+                            {
+                            "pattern" : "adresse/",
+                            "name" : "Famille",
+                            "view" : "Famille",
+                            "viewLevel" : 2,
+                            "targetAggregation" : "detailPages"
+                            },
+                            {
+                            "pattern" : "apropos/",
+                            "name" : "Apropos",
+                            "view" : "Apropos",
+                            "viewLevel" : 2,
+                            "targetAggregation" : "detailPages"
+                            }
+                        ]
+                    }
+                ]
+                },
+                {
+                "pattern": "nologin",
+                "name": "nologin",
+                "view" : "NoLogin",
+                    "controlId": "app",
+                    "controlAggregation": "pages"
+                }
+
+            ],
             "targets": {
                 "home": {
-                    "viewName": "Split",
-                    "viewLevel" : 1
+                    "viewName": "Split"
+
                 },
                 "404": {
+                    "controlId": "app",
+                    "controlAggregation": "pages",
                     "viewName": "404",
                     "transition": "show"
                 },
@@ -80,7 +126,13 @@
                 },
                 "menu": {
                     "viewName": "Menu",
-                    "transition": "show"
+                    "transition": "show",
+                    "viewLevel" : 1
+                },
+                "suivi": {
+                    "viewName": "Suivi",
+                    "transition": "show",
+                    "viewLevel" : 2
                 }
             }
         },

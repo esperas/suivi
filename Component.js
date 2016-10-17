@@ -25,7 +25,7 @@ sap.ui.define([
             var regex = /[A-Z0-9]{10}$/;
 
             if (!regex.test(parent)) {
-                this.getRouter().getTargets().display("nologin");
+                this.getRouter().navTo("nologin");
             };
 
             parent = "json/" + parent + ".json";

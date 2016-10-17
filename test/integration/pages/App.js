@@ -2,7 +2,8 @@ sap.ui.require([
 		'sap/ui/test/Opa5',
 		'sap/ui/test/matchers/AggregationLengthEquals',
 		'sap/ui/test/matchers/PropertyStrictEquals',
-		'sap/ui/test/actions/Press'
+		'sap/ui/test/actions/Press',
+        'sap/ui/test/matchers/Properties'
 	],
 	function (Opa5, AggregationLengthEquals, PropertyStrictEquals, Press) {
 		"use strict";
@@ -25,13 +26,20 @@ sap.ui.require([
                         //Rien pour l'instant
                     },
 
-                    iPressButtonBack: function(sView, sId) {
+                    iPressButtonBack: function(sView, pId) {
                          return this.waitFor({
-                            controlType: "sap.m.Page",
-                            id: sId,
-							viewName: sView,
-							success: function (oPage) {
-								oPage.$("navButton").trigger("tap");
+                            controlType: "sap.m.Button",
+                            viewName: "ecole.famille.view.App",
+                            matchers: function(oButton){
+                                var regex = new RegExp("navButton");
+                                console.log(oButton.getId(), regex.test(oButton.getId()));
+                                if (regex.test(oButton.getId())) {
+                                    return oButton;
+                                };
+                            },
+							success: function (oButton) {
+
+								oButton[0].$().trigger("tap");
 							},
 							errorMessage: "Did not find the nav button on object page"
 						});
@@ -50,12 +58,20 @@ sap.ui.require([
 					},
                    thisScreenShouldBeDisplay: function (pView, pId) {
                         return this.waitFor({
-                          viewName: pView,
-                          id: pId,
+                          viewName: "ecole.famille.view.App",
+                          //id: pId,
+                            matchers: function(oPage){
+                                var regex = new RegExp(pId);
+                                console.log(oPage.sId, regex.test(oPage.getId()));
+                                if (regex.test(oPage.getId())) {
+                                    return oPage;
+                                };
+                            },
 						  controlType: "sap.m.Page",
-						  success: function () {
+						  success: function (oPages) {
 							// we set the view busy, so we need to query the parent of the app
-							Opa5.assert.ok(true, "Page Adresse ouverte");
+                           // console.log(oPages)  ;
+							Opa5.assert.ok(true, "Page ouverte");
 						  },
 						  errorMessage: "Affichage de l'écran ok"
 					    });

@@ -6,7 +6,7 @@ sap.ui.require([
 	],
 	function (Opa5, AggregationLengthEquals, PropertyStrictEquals, Press) {
 		"use strict";
-		var sViewName = "ecole.famille.view.Menu",
+		var sViewName = "ecole.famille.view.App",
 			sTableId = "table";
 		Opa5.createPageObjects({
 			onTheMenuPage: {
@@ -18,12 +18,13 @@ sap.ui.require([
 						      controlType: "sap.m.ObjectListItem",
 						      success: function (oItems) {
                                   for(var i = 0; i < oItems.length; i++) {
-                                    var obj = oItems[i].getBindingContext("menu").getObject();
-                                    if (obj.targetPage==pId) {
-                                        oItems[i].$().trigger("tap");
+                                    if (oItems[i].getBindingContext("menu")) {
+                                        var obj = oItems[i].getBindingContext("menu").getObject();
+                                        if (obj.targetPage==pId) {
+                                            oItems[i].$().trigger("tap");
+                                        }
                                     }
                                   }
-                                   // oItems.$().trigger("tap");
                               },
 						errorMessage: "Did not find the Item List on the app page"
 					});

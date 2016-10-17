@@ -7,9 +7,8 @@ sap.ui.define([
     "use strict";
     return Controller.extend("ecole.famille.controller.Apropos", {
         navBack : function() {
-            var oSplitApp = this.getView().getParent().getParent();
-            var oMaster = oSplitApp.getMasterPages()[0];
-            oSplitApp.toMaster(oMaster, "slide");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("menu");
         }
       
     });

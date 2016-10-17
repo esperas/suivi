@@ -8,21 +8,12 @@ sap.ui.define([
         navToMenu : function(evt) {
 
             // Navigue vers le l'écran proposé dans le menu
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
             var obj = evt.getSource().getBindingContext("menu").getObject();
 
-            var oTempora = this.getView().getParent().getParent();   //SplitControle
+            oRouter.navTo(obj.targetPage);
 
-            var i;
-            var len = oTempora._aDetailPages.length;
-            var target;  //sId de la page de détail recherché
-            for (i = 0; i < len; i++) {
-                var str = "ecole.famille.view." + obj.targetPage;
-                if (oTempora._aDetailPages[i].sViewName==str){
-                    target = oTempora._aDetailPages[i].sId;
-                }
-            }
-
-            oTempora.toDetail(target);
 		}
 
 

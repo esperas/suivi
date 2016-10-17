@@ -20,8 +20,8 @@ sap.ui.require([
 
         //When.onTheAppPage.iPressTheSayHelloWithDialogButton();
 		// Assertions
-		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay().
-			and.iTeardownMyAppFrame();
+		Then.onTheAppPage.theNoLoginScreenShouldBeDisplay()
+			.and.iTeardownMyAppFrame();
 	});
     QUnit.module("Navigation");
     opaTest("Navigation sur Page Adresse", function (Given, When, Then) {
@@ -31,16 +31,20 @@ sap.ui.require([
 
         When.onTheMenuPage.iPressListItem("Famille");
 		// Assertions
-		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Famille","famille");
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Famille","famille")
+            .and.iTeardownMyAppFrame();
 	});
     opaTest("Navigation sur Page A Propos", function (Given, When, Then) {
+        Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 		// Arrangements
         When.onTheMenuPage.iPressListItem("Apropos");
 		// Assertions
-		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Apropos","apropos");
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Apropos","apropos")
+            .and.iTeardownMyAppFrame();
 
 	});
     opaTest("Navigation sur Page Suivi", function (Given, When, Then) {
+        Given.iStartMyAppInAFrame("../../index.html?parent=AZERTY1234");
 		// Arrangements
         When.onTheMenuPage.iPressListItem("Suivi");
 		// Assertions
