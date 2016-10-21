@@ -12,19 +12,27 @@ sap.ui.define([
         },
         file : file,
 
+        successCallback : function(){
+            console.log("Chargement Model OK")
+            //console.log(window.models.famille)
+        },
+        errorCallback : function() {
+            console.log("Chargement Model raté")
+        },
+
         init : function () {
             // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
+            console.log("Démarrage du Component.js")
 
-            // create the views based on the url/hash
-            this.getRouter().initialize();
 
             var parent = jQuery.sap.getUriParameters().get("parent");
-
+            console.log("Parent : ", parent)
             // L'identifiant est composé de 10 characters, majuscules et chiffres
             var regex = /[A-Z0-9]{10}$/;
 
             if (!regex.test(parent)) {
+                this.getRouter().initialize();
                 this.getRouter().navTo("nologin");
             };
 
@@ -34,11 +42,15 @@ sap.ui.define([
             // Vérification de l'existence du fichier
             this.file.checkFile(parent);
 
-            window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
 
-            var oModel = this.getModel("famille");
+            // Stockage des Models pour partage simplifié (pb de porté des Modèles)
 
-            oModel.loadData(parent);
+            window.oModels["famille"] = this.getModel("famille");
+            window.oModels["files"] = this.getModel("files");
+
+            this.file.cachedModel( "famille", "json/AZERTY1234.json", this.successCallback);
+            this.file.cachedModel( "files", "json/FILES.json", this.successCallback);
+            this.file.cachedModel( "famille", "json/AZERTY1234.json", this.successCallback);
 
             // set i18n model
             var i18nModel = new ResourceModel({
@@ -58,6 +70,11 @@ sap.ui.define([
             // Définir les paramètres de configuration de l'appli
             var oConfig = new sap.ui.model.json.JSONModel("config.json");
             this.setModel(oConfig,"config");
+
+            // create the views based on the url/hash
+            this.getRouter().initialize();
+
+            window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
 
         },
        

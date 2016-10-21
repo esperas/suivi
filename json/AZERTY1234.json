@@ -12,11 +12,11 @@
 }
 ,
 {
-"date": "03/08/2015","facture": "1.3000","reglement": "","libelle": "Facture n° : 1072","piece": "1072","paiement": "N"
+"date": "03/08/2015","facture": "1.3000","reglement": "","libelle": "Facture n° : 1072","piece": "1072","paiement": "N","periode": "201601"
 }
 ,
 {
-"date": "03/07/2015","facture": "73.2500","reglement": "","libelle": "Facture n° : 1042","piece": "1042","paiement": "R"
+"date": "03/07/2015","facture": "73.2500","reglement": "","libelle": "Facture n° : 1042","piece": "1042","paiement": "R","periode": "201602"
 }
 ,
 {

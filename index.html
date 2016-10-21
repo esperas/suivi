@@ -16,6 +16,8 @@
         </script>
         
         <script>
+            window.oModels = { "famille" : "", "files" : ""}
+            window.cachedScriptPromises = {}
             sap.ui.getCore().attachInit(function () {
                 new sap.m.Shell({
                     app : new sap.ui.core.ComponentContainer({

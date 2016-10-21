@@ -1,0 +1,30 @@
+<mvc:View
+          controllerName="ecole.famille.controller.Files"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc">
+
+    <UploadCollection
+            id="files"
+            uploadEnabled="false"
+            items="{path : 'files>/fichiers', templateShareable : 'true'}">
+
+    <items>
+		<UploadCollectionItem
+			fileName="{files>filename}"
+			url="{files>url}"
+            mimeType="{files>mimeType}"
+            attributes="{path : 'files>attributes', templateShareable : 'true'}">
+            <attributes>
+							<ObjectAttribute
+								title="{files>title}"
+								text="{files>text}"
+								/>
+						</attributes>
+        </UploadCollectionItem>
+    </items>
+
+
+    </UploadCollection>
+
+</mvc:View>

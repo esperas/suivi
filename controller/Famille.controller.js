@@ -9,7 +9,7 @@ sap.ui.define([
        navBack : function() {
 
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("menu");
+            oRouter.navTo("");
 
         }
 

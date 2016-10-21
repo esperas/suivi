@@ -30,6 +30,7 @@
 						<mvc:XMLView id="suivi" viewName="ecole.famille.view.Suivi" />
                         <mvc:XMLView id="famille" viewName="ecole.famille.view.Famille" />
                         <mvc:XMLView id="apropos" viewName="ecole.famille.view.Apropos" />
+                        <mvc:XMLView id="files" viewName="ecole.famille.view.Files" />
 					</detailPages>
 					<masterPages>
 						<mvc:XMLView id="menu" viewName="ecole.famille.view.Menu" />

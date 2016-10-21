@@ -39,14 +39,17 @@
                     "bundleName": "ecole.famille.i18n.i18n"
                 }
             },
-            "famille": {
-                "type": "sap.ui.model.json.JSONModel",
-                "uri": "model/data.json"
-            },
             "menu": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/Menu.json"
+            },
+            "famille": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "files": {
+                "type": "sap.ui.model.json.JSONModel"
             }
+
         },
         "routing": {
             "config": {
@@ -95,6 +98,13 @@
                             "view" : "Apropos",
                             "viewLevel" : 2,
                             "targetAggregation" : "detailPages"
+                            },
+                            {
+                            "pattern" : "periodes/{periode}",
+                            "name" : "Files",
+                            "view" : "Files",
+                            "viewLevel" : 3,
+                            "targetAggregation" : "detailPages"
                             }
                         ]
                     }
@@ -107,7 +117,6 @@
                     "controlId": "app",
                     "controlAggregation": "pages"
                 }
-
             ],
             "targets": {
                 "home": {

@@ -14,13 +14,26 @@ sap.ui.define([
         
         navBack : function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("menu");
+            oRouter.navTo("");
         },
         onPDF : function(evt) {
-            var obj = evt.getSource().getBindingContext("famille").getObject();
+
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oItem, oCtx;
+			oItem = evt.getSource();
+			oCtx = oItem.getBindingContext("famille");
+            var toto = oCtx.getProperty("periode");
+			oRouter.navTo("Files",{
+				periode : oCtx.getProperty("periode")
+			});
+
+            //var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            //oRouter.navTo("Files");
+
+            //var obj = evt.getSource().getBindingContext("famille").getObject();
             //console.log(obj);
-            var url = "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + obj.piece + ".pdf";
-            window.open(url);
+            //var url = "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + obj.piece + ".pdf";
+            //window.open(url);
         }
     })
 });
