@@ -23,9 +23,12 @@ sap.ui.define([
 			oItem = evt.getSource();
 			oCtx = oItem.getBindingContext("famille");
             var toto = oCtx.getProperty("periode");
-			oRouter.navTo("Files",{
-				periode : oCtx.getProperty("periode")
-			});
+            if (toto!=null&&!toto!=undefined) {
+                oRouter.navTo("Files",{
+				    periode : oCtx.getProperty("periode")
+			     });
+            }
+
 
             //var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             //oRouter.navTo("Files");
