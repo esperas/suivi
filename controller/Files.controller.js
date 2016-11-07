@@ -36,7 +36,7 @@ sap.ui.define([
                         function(element, indice, array){
                             return element.piece == oFamille.oData.suivi[i].piece
                         })) {
-                        oModel.oData.fichiers.push({
+                        oModel.oData.fichiers.unshift({
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
                             "piece" : oFamille.oData.suivi[i].piece,
@@ -46,6 +46,7 @@ sap.ui.define([
                 }
 
             }
+
             oModel.refresh()
 
             // build filter array
