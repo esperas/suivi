@@ -4,11 +4,15 @@ sap.ui.define([
     "sap/m/MessageToast",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    "../model/formatter"
 
-], function (Controller, JSONModel, MessageToast, Filter, FilterOperator, History) {
+], function (Controller, JSONModel, MessageToast, Filter, FilterOperator, History, formatter) {
     "use strict";
     return Controller.extend("ecole.famille.controller.Files", {
+
+        formatter : formatter,
+
         done : function() {
             console.log("Demande CachedModel terminé")
         },
@@ -25,6 +29,7 @@ sap.ui.define([
             console.log(window.controller.oArgs.periode)
 
             window.controller.periode = window.controller.oArgs.periode;
+            oModel.oData.periode = window.controller.oArgs.periode;
             for (var i=0;i<oFamille.oData.suivi.length;i++){
                 if ( oFamille.oData.suivi[i].piece && oFamille.oData.suivi[i].periode) {
                     if (!oModel.oData.fichiers.some(

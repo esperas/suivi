@@ -96,7 +96,14 @@ sap.ui.define([], function () {
                 if (flag==true) { result = sap.m.OverflowToolbarPriority.AlwaysOverflow; };
             }
             return result;
+        },
+        extractMonth : function (periode) {
+            jQuery.sap.require("sap.ui.core.format.DateFormat");
+            if (periode===null||periode===undefined) { return null}
+            var oSourceFormat =  sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "yyyyMM"});
+            var oCibleFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "MMMM"});
+            var oDate = oSourceFormat.parse(periode);
+            return oCibleFormat.format(oDate);
         }
-
-	};
+        }
 });
