@@ -122,5 +122,20 @@ sap.ui.require(
             assert.ok(fnIsolatedFormatter(null)==sap.m.ListType.Active, "KO pour Null pas de piece");
             assert.ok(fnIsolatedFormatter(undefined)==sap.m.ListType.Active, "KO pour Undefined pas de piece");
         });
+        QUnit.test("Extraction du mois correcte", function (assert) {
+			// Arrange
+			var	oViewStub = {
+				getModel: this.stub().withArgs("i18n").returns(this._oResourceModel)
+			};
+			var oControllerStub = {
+				getView: this.stub().returns(oViewStub)
+			};
+			// System under test
+			var fnIsolatedFormatter = formatter.extractMonth.bind(oControllerStub);
+			// Assert
+
+            assert.ok(fnIsolatedFormatter("201609")=="septembre", "Ok pour octobre");
+            assert.ok(fnIsolatedFormatter("201601")=="janvier", "Ok pour janvier");
+        });
 	}
 );

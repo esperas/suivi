@@ -40,6 +40,19 @@ sap.ui.require([
 		// Assertions
 		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Suivi","suivi");
 	});
+     opaTest("Navigation sur Page Files", function (Given, When, Then) {
+		// Arrangements
+        When.onTheSuiviPage.iPressListItem("1072");
+		// Assertions
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Files","fichiers");
+	});
+        opaTest("Retour vers la page suivi", function (Given, When, Then) {
+		// Arrangements
+        When.onTheAppPage.iPressButtonBack("ecole.famille.view.Files", "files");
+		// Assertions
+		Then.onTheAppPage.thisScreenShouldBeDisplay("ecole.famille.view.Suivi","suivi");
+	});
+
     opaTest("Retour vers la page menu", function (Given, When, Then) {
 		// Arrangements
         When.onTheAppPage.iPressButtonBack("ecole.famille.view.Suivi", "suivi");

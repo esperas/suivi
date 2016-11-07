@@ -11,6 +11,26 @@ sap.ui.require([
 		Opa5.createPageObjects({
 			onTheSuiviPage: {
 
+                actions: {
+                    iPressListItem: function(pId) {
+                       return this.waitFor({
+                              viewName: "ecole.famille.view.App",
+						      controlType: "sap.m.ObjectListItem",
+						      success: function (oItems) {
+                                  for(var i = 0; i < oItems.length; i++) {
+                                    if (oItems[i].getBindingContext("famille")) {
+                                        var obj = oItems[i].getBindingContext("famille").getObject();
+                                        if (obj.piece==pId) {
+                                            oItems[i].$().trigger("tap");
+                                        }
+                                    }
+                                  }
+                              },
+						errorMessage: "Did not find the Item List on the app page"
+					});
+                }
+                },
+
 				assertions: {
                     RIBShouldBeHide: function (pBoolean) {
                         return this.waitFor({

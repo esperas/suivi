@@ -74,6 +74,10 @@ sap.ui.define([
 
             // Vérification de l'existence du fichier
             this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
+            if (sap.ui.Device.system.phone!=true) {
+                this.getRouter().navTo("Suivi");
+            }
+
 
         },
        
