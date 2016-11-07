@@ -3,9 +3,10 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/FilterOperator",
+    "sap/ui/core/routing/History"
 
-], function (Controller, MessageToast, JSONModel, Toast, Filter, FilterOperator) {
+], function (Controller, JSONModel, MessageToast, Filter, FilterOperator, History) {
     "use strict";
     return Controller.extend("ecole.famille.controller.Files", {
         done : function() {
@@ -33,7 +34,8 @@ sap.ui.define([
                         oModel.oData.fichiers.push({
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
-                            "piece" : oFamille.oData.suivi[i].piece
+                            "piece" : oFamille.oData.suivi[i].piece,
+                            "url" :  "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
                             })
                         }
                 }
@@ -65,7 +67,7 @@ sap.ui.define([
             //var oRouter = sap.ui.core.routing.Router.getRouter("router");
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             if (oRouter) {
-			oRouter.getRoute("Files").attachMatched(this._onRouteMatched, this);
+			     oRouter.getRoute("Files").attachMatched(this._onRouteMatched, this);
             }
         },
         _onRouteMatched : function (oEvent) {
@@ -73,7 +75,8 @@ sap.ui.define([
 			console.log("route matched", this.periode)
             this.oArgs = oEvent.getParameter("arguments");
             var oComp = this.getOwnerComponent()
-            $.when(oComp.file.cachedModel( "famille", "json/AZERTY1234.json", this.callok),
+            var parent = jQuery.sap.getUriParameters().get("parent");
+            $.when(oComp.file.cachedModel( "famille", "json/"+parent+".json", this.callok),
                   oComp.file.cachedModel( "files", "json/FILES.json", this.callok ))
                 .done(this.ok)
 
@@ -100,6 +103,17 @@ sap.ui.define([
 			if (!this.getView().getBindingContext()) {
 				this.getRouter().getTargets().display("notFound");
 			}
-		}
+		},
+        navBack : function(oEvent) {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oHistory, sPreviousHash;
+			oHistory = History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				oRouter.navTo("Suivi", {}, true /*no history*/);
+			}
+        }
     });
 });

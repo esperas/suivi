@@ -3,6 +3,11 @@
           xmlns="sap.m"
           xmlns:l="sap.ui.layout"
           xmlns:mvc="sap.ui.core.mvc">
+    <Page
+        class="sapUiStdPage"
+        title="{i18n>titleFiles}"
+        showNavButton="true"
+		navButtonPress="navBack">
 
     <UploadCollection
             id="files"
@@ -14,7 +19,9 @@
 			fileName="{files>filename}"
 			url="{files>url}"
             mimeType="{files>mimeType}"
-            attributes="{path : 'files>attributes', templateShareable : 'true'}">
+            attributes="{path : 'files>attributes', templateShareable : 'true'}"
+            visibleEdit="false"
+            visibleDelete="false">
             <attributes>
 							<ObjectAttribute
 								title="{files>title}"
@@ -26,5 +33,5 @@
 
 
     </UploadCollection>
-
+    </Page>
 </mvc:View>
