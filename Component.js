@@ -37,7 +37,7 @@ sap.ui.define([
                 this.getRouter().navTo("nologin");
             };
 
-            parent = "json/" + parent + ".json";
+            //parent = "json/" + parent + ".json";
             //Mise à jour du model avec les "vrai" données
 
             // Stockage des Models pour partage simplifié (pb de porté des Modèles)
@@ -45,7 +45,7 @@ sap.ui.define([
             window.oModels["famille"] = this.getModel("famille");
             window.oModels["files"] = this.getModel("files");
 
-            this.file.cachedModel( "famille", "json/"+parentId+".json", this.successCallback);
+            this.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
             this.file.cachedModel( "files", "json/FILES.json", this.successCallback);
 
             // set i18n model
@@ -73,7 +73,7 @@ sap.ui.define([
             window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
 
             // Vérification de l'existence du fichier
-            this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
+            //this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
             if (sap.ui.Device.system.phone!=true) {
                 this.getRouter().navTo("Suivi");
             }

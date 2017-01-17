@@ -23,6 +23,11 @@ sap.ui.define([], function () {
         isStatusVisible : function (status) {
             if (typeof status == 'undefined') { 
                 return false;
+            } else {
+                return true;
+            }
+/*            if (typeof status == 'undefined') {
+                return false;
             } else if (status=='N') { 
                 return true;
             } else if (status=='X') {
@@ -33,7 +38,7 @@ sap.ui.define([], function () {
                 return true;
             } else {
                 return false;
-            }
+            }*/
         },
         navigation : function (numPiece) {
                 if (numPiece) {
@@ -43,12 +48,17 @@ sap.ui.define([], function () {
                 };
 
         },
-        isStatusText : function (status) {
+        isStatusText : function (status, typedoc) {
 
             // read msg from i18n model
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
-
+            var doc = typedoc + '.' + status;
             if (typeof status == 'undefined'|| status == null ) {
+                return null;
+            } else {
+                return oBundle.getText(doc);
+            }
+/*            if (typeof status == 'undefined'|| status == null ) {
                 return null;
             } else if (status=='N') { 
                 return oBundle.getText("factureStatus.new");
@@ -60,10 +70,38 @@ sap.ui.define([], function () {
                 return oBundle.getText("factureStatus.late");
             } else {
                 return null;
-            }
+            }*/
         },
-        isStatusState : function (status) {
+        isStatusState : function (status, typedoc) {
             if (typeof status == 'undefined') { 
+                return sap.ui.core.ValueState.None;
+            };
+            if (typedoc=='CHQ') {
+                return sap.ui.core.ValueState.Success;
+            }
+            if (typedoc=='NDF') {
+                return sap.ui.core.ValueState.Success;
+            }
+            if (typedoc=='F') {
+                if (status=='N'||status=='P') {
+                    return sap.ui.core.ValueState.Warning;
+                } else if (status=='X') {
+                    return sap.ui.core.ValueState.Success;
+                } else if (status=='R') {
+                    return sap.ui.core.ValueState.Error;
+                } else {
+                    return sap.ui.core.ValueState.None;
+                }
+            }
+            if (typedoc=='A') {
+                if (status=='N'||status=='P') {
+                    return sap.ui.core.ValueState.Success;
+                }
+            }
+
+            return sap.ui.core.ValueState.None;
+
+    /*        if (typeof status == 'undefined') {
                 return sap.ui.core.ValueState.None;
             } else if (status=='N'||status=='P') {
                 return sap.ui.core.ValueState.Warning;
@@ -73,7 +111,7 @@ sap.ui.define([], function () {
                 return sap.ui.core.ValueState.Error;
             } else {
                 return sap.ui.core.ValueState.None;
-            }
+            }*/
         },
         isRIBvisible : function () {
             // Cette fonction calcule s'il y a un libellé virement d'effectuer.

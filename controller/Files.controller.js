@@ -82,7 +82,7 @@ sap.ui.define([
             this.oArgs = oEvent.getParameter("arguments");
             var oComp = this.getOwnerComponent()
             var parent = jQuery.sap.getUriParameters().get("parent");
-            $.when(oComp.file.cachedModel( "famille", "json/"+parent+".json", this.callok),
+            $.when(oComp.file.cachedModel( "famille", "http://api/famille/"+parent, this.callok),
                   oComp.file.cachedModel( "files", "json/FILES.json", this.callok ))
                 .done(this.ok)
 
