@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+<Dialog
+        id="Login"
+		title="{i18n>logon}"
+		class="sapUiContentPadding" >
+
+        <Label text="Login" />
+        <Input type="Text"
+               value="{ui>/parent}" />
+
+		<beginButton>
+			<Button text="OK" press="onLogin" />
+		</beginButton>
+
+	</Dialog>
+</core:FragmentDefinition>

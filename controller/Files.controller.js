@@ -41,7 +41,7 @@ sap.ui.define([
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
                             "piece" : oFamille.oData.suivi[i].piece,
-                            "url" :  "http://parents.calandreta-dauna.fr/moncompte/json/facture/" + window.oModels["ui"].getProperty("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
+                            "url" :  "http://localhost:8080/moncompte/json/facture/" + window.oModels["ui"].getProperty("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
                             })
                         }
                 }
@@ -70,12 +70,15 @@ sap.ui.define([
             console.log("Démarage controller Files")
             this.periode = "toto";
 
+            window.oComp = this.getOwnerComponent()
+
             //var oRouter = this.getRouter();
             //var oRouter = sap.ui.core.routing.Router.getRouter("router");
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             if (oRouter) {
 			     oRouter.getRoute("Files").attachMatched(this._onRouteMatched, this);
             }
+
         },
         _onRouteMatched : function (oEvent) {
             window.controller = this
@@ -85,8 +88,8 @@ sap.ui.define([
 
             var parent = window.oModels["ui"].getProperty("parent");
             //var parent = jQuery.sap.getUriParameters().get("parent");
-            $.when(oComp.file.cachedModel( "famille", "http://api.calandreta-dauna.fr/famille/"+parent, this.callok),
-                  oComp.file.cachedModel( "files", "http://parents.calandreta-dauna.fr/moncompte/json/FILES.json", this.callok ))
+            $.when(oComp.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.callok),
+                  oComp.file.cachedModel( "files", "http://localhost:8080/moncompte/json/FILES.json", this.callok ))
                 .done(this.ok)
 
 		},

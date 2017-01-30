@@ -38,7 +38,7 @@
 			                   }
                               }"
                     numberUnit="{path: 'famille>/currency'}"
-                    state="{= ${famille>/solde} >= 0 ? 'Success' : 'Error' }"/>
+                    state="{= ${famille>/solde} >= -0.001 ? 'Success' : 'Error' }"/>
               </contentRight>
             </Bar>
 		</customHeader>
@@ -68,11 +68,11 @@
 			                   }
                               }"
 		              numberUnit="{path: 'famille>/currency'}"
-                      numberState="{= ${famille>/solde} >= 0 ? 'Success' : 'Error' }"
+                      numberState="{= ${famille>/solde} >= -0.001 ? 'Success' : 'Error' }"
                       >
             <statuses>
                 <ObjectStatus
-                    visible="{= ${famille>/solde} >= 0 ? false : true }"
+                    visible="{= ${famille>/solde} >= -0.001 ? false : true }"
                     text="{i18n>debiteur}"
                     state="Error" />
             </statuses>

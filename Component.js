@@ -26,16 +26,28 @@ sap.ui.define([
             console.log("Démarrage du Component.js")
 
 
+            //Get Storage object to use
+            jQuery.sap.require("jquery.sap.storage");
+            var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+
             var parent = jQuery.sap.getUriParameters().get("parent");
-            var parentId = parent;
+
+            if (parent) {
+                oStorage.put("parent", parent);
+            } else {
+                parent = oStorage.get("parent");
+            }
+
             console.log("Parent : ", parent)
             // L'identifiant est composé de 10 characters, majuscules et chiffres
+/*
             var regex = /[A-Z0-9]{10}$/;
 
             if (!regex.test(parent)) {
                 this.getRouter().initialize();
                 this.getRouter().navTo("nologin");
             };
+*/
 
             //parent = "json/" + parent + ".json";
             //Mise à jour du model avec les "vrai" données
@@ -46,9 +58,10 @@ sap.ui.define([
             window.oModels["files"] = this.getModel("files");
             window.oModels["ui"] = this.getModel("ui");
             window.oModels["ui"].oData.parent = parent;
+            window.oModels["ui"].refresh();
 
-            this.file.cachedModel( "famille", "http://api.calandreta-dauna.fr/famille/"+parent, this.successCallback);
-            this.file.cachedModel( "files", "http://parents.calandreta-dauna.fr/moncompte/json/FILES.json", this.successCallback);
+            this.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
+            this.file.cachedModel( "files", "http://localhost:8080/moncompte/json/FILES.json", this.successCallback);
 
             // set i18n model
             var i18nModel = new ResourceModel({
