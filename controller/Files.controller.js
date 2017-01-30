@@ -24,7 +24,8 @@ sap.ui.define([
             console.log(this.periode)
 
             var oFamille = window.oModels["famille"];
-            var oModel = window.oModels["files"]
+            var oModel = window.oModels["files"];
+            var parent = window.oModels["ui"].getProperty("parent");
 
             console.log(window.controller.oArgs.periode)
 
@@ -40,7 +41,7 @@ sap.ui.define([
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
                             "piece" : oFamille.oData.suivi[i].piece,
-                            "url" :  "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
+                            "url" :  "http://parents.calandreta-dauna.fr/moncompte/json/facture/" + window.oModels["ui"].getProperty("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
                             })
                         }
                 }
@@ -81,27 +82,12 @@ sap.ui.define([
 			console.log("route matched", this.periode)
             this.oArgs = oEvent.getParameter("arguments");
             var oComp = this.getOwnerComponent()
-            var parent = jQuery.sap.getUriParameters().get("parent");
-            $.when(oComp.file.cachedModel( "famille", "http://api/famille/"+parent, this.callok),
-                  oComp.file.cachedModel( "files", "json/FILES.json", this.callok ))
+
+            var parent = window.oModels["ui"].getProperty("parent");
+            //var parent = jQuery.sap.getUriParameters().get("parent");
+            $.when(oComp.file.cachedModel( "famille", "http://api.calandreta-dauna.fr/famille/"+parent, this.callok),
+                  oComp.file.cachedModel( "files", "http://parents.calandreta-dauna.fr/moncompte/json/FILES.json", this.callok ))
                 .done(this.ok)
-
-  /*          var oArgs, oView;
-
-			oArgs = oEvent.getParameter("arguments");
-			oView = this.getView();
-
-			oView.bindElement({
-				path : "files>/periodes(\"2016-01\")",
-				events : {
-					change: this._onBindingChange.bind(this),
-					dataRequested: function (oEvent) {
-						oView.setBusy(true);
-					},
-					dataReceived: function (oEvent) {
-						oView.setBusy(false);
-					}
-				}*/
 
 		},
 		_onBindingChange : function (oEvent) {

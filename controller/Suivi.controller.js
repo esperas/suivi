@@ -9,7 +9,7 @@ sap.ui.define([
         formatter : formatter,
 
         downloadRIB : function(evt) {
-            window.open("./json/facture/RIB.pdf");
+            window.open("http://parents.calandreta-dauna.fr/moncompte/json/facture/RIB.pdf");
         },
         
         navBack : function() {
