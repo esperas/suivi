@@ -60,8 +60,8 @@ sap.ui.define([
             window.oModels["ui"].oData.parent = parent;
             window.oModels["ui"].refresh();
 
-            this.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
-            this.file.cachedModel( "files", "http://localhost:8080/moncompte/json/FILES.json", this.successCallback);
+            this.file.cachedModel( "famille", "http://api.calandreta-dauna.fr/famille/"+parent, this.successCallback);
+            this.file.cachedModel( "files", "http://parents.calandreta-dauna.fr/moncompte/json/FILES.json", this.successCallback);
 
             // set i18n model
             var i18nModel = new ResourceModel({

@@ -27,7 +27,7 @@ sap.ui.define([
             this.getView().byId("Login").close();
             delete window.cachedScriptPromises.famille;
             var parent = window.oModels["ui"].oData.parent;
-            window.oComp.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
+            window.oComp.file.cachedModel( "famille", "http://api.calandreta-dauna.fr/famille/"+parent, this.successCallback);
 
             jQuery.sap.require("jquery.sap.storage");
             var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
