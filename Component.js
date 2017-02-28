@@ -26,27 +26,42 @@ sap.ui.define([
             console.log("Démarrage du Component.js")
 
 
+            //Get Storage object to use
+            jQuery.sap.require("jquery.sap.storage");
+            var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+
             var parent = jQuery.sap.getUriParameters().get("parent");
-            var parentId = parent;
+
+            if (parent) {
+                oStorage.put("parent", parent);
+            } else {
+                parent = oStorage.get("parent");
+            }
+
             console.log("Parent : ", parent)
             // L'identifiant est composé de 10 characters, majuscules et chiffres
+/*
             var regex = /[A-Z0-9]{10}$/;
 
             if (!regex.test(parent)) {
                 this.getRouter().initialize();
                 this.getRouter().navTo("nologin");
             };
+*/
 
-            parent = "json/" + parent + ".json";
+            //parent = "json/" + parent + ".json";
             //Mise à jour du model avec les "vrai" données
 
             // Stockage des Models pour partage simplifié (pb de porté des Modèles)
 
             window.oModels["famille"] = this.getModel("famille");
             window.oModels["files"] = this.getModel("files");
+            window.oModels["ui"] = this.getModel("ui");
+            window.oModels["ui"].oData.parent = parent;
+            window.oModels["ui"].refresh();
 
-            this.file.cachedModel( "famille", "json/"+parentId+".json", this.successCallback);
-            this.file.cachedModel( "files", "json/FILES.json", this.successCallback);
+            this.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
+            this.file.cachedModel( "files", "http://api:8080/fichiers?famille="+parent, this.successCallback);
 
             // set i18n model
             var i18nModel = new ResourceModel({
@@ -73,7 +88,7 @@ sap.ui.define([
             window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
 
             // Vérification de l'existence du fichier
-            this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
+            //this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
             if (sap.ui.Device.system.phone!=true) {
                 this.getRouter().navTo("Suivi");
             }

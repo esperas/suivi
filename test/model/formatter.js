@@ -1,36 +1,34 @@
-sap.ui.define([
-    "sap/ui/Device"
-], function (Device) {
+sap.ui.define([], function () {
 	"use strict";
 
 	return {
         montant: function (facture, reglement) {
             // Remvoi le montant de la facture en négatif sinon le règlement en positif
             var montant = facture || reglement;
-            if (facture) { 
-                montant = -1 * montant 
+            if (facture) {
+                montant = -1 * montant
             };
             var value = sap.ui.core.format.NumberFormat.getCurrencyInstance();
             return value.format(montant);
         },
-        
+
         soldeDisplay : function (montant) {
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
 
             var value = sap.ui.core.format.NumberFormat.getCurrencyInstance();
             //var res = oBundle.getText("solde.montant");
             return  oBundle.getText("solde.montant") + value.format(montant);
-            
+
         },
         isStatusVisible : function (status) {
-            if (typeof status == 'undefined') { 
+            if (typeof status == 'undefined') {
                 return false;
             } else {
                 return true;
             }
 /*            if (typeof status == 'undefined') {
                 return false;
-            } else if (status=='N') { 
+            } else if (status=='N') {
                 return true;
             } else if (status=='X') {
                 return true;
@@ -62,7 +60,7 @@ sap.ui.define([
             }
 /*            if (typeof status == 'undefined'|| status == null ) {
                 return null;
-            } else if (status=='N') { 
+            } else if (status=='N') {
                 return oBundle.getText("factureStatus.new");
             } else if (status=='X') {
                 return oBundle.getText("factureStatus.paied");
@@ -75,7 +73,7 @@ sap.ui.define([
             }*/
         },
         isStatusState : function (status, typedoc) {
-            if (typeof status == 'undefined') { 
+            if (typeof status == 'undefined') {
                 return sap.ui.core.ValueState.None;
             };
             if (typedoc=='CHQ') {
@@ -145,20 +143,5 @@ sap.ui.define([
             var oDate = oSourceFormat.parse(periode);
             return oCibleFormat.format(oDate);
         }
-        ,
-        extractDate : function (iDate) {
-            jQuery.sap.require("sap.ui.core.format.DateFormat");
-            var oCibleFormat;
-            var oSourceFormat =  sap.ui.core.format.DateFormat.getDateInstance({pattern: "yyyy-MM-dd"});
-            var oDevice = this.getView().getModel("device");
-            if (oDevice.getProperty('/system/phone')) {
-              oCibleFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern: "dd-MMM"});
-            } else {
-              oCibleFormat = sap.ui.core.format.DateFormat.getDateInstance({style: "long"});
-            }
-
-            var oDate = oSourceFormat.parse(iDate);
-            return oCibleFormat.format(oDate);
         }
-    }
 });

@@ -7,7 +7,7 @@
         <title>Parents</title>
         <script
                 id="sap-ui-bootstrap"
-                src="https://openui5.hana.ondemand.com/1.38.8/resources/sap-ui-core.js"
+                src="../openui5/resources/sap-ui-core.js"
                 data-sap-ui-theme="sap_bluecrystal"
                 data-sap-ui-libs="sap.m"
                 data-sap-ui-compatVersion="edge"
@@ -16,7 +16,7 @@
         </script>
         
         <script>
-            window.oModels = { "famille" : "", "files" : ""}
+            window.oModels = { "famille" : "", "files" : "", "ui" : ""}
             window.cachedScriptPromises = {}
             sap.ui.getCore().attachInit(function () {
                 new sap.m.Shell({
@@ -35,18 +35,18 @@
 
 	<!--<script type="text/javascript">-->
  <!-- 		var _paq = _paq || [];-->
-	<!--	_paq.push(["setDomains", ["*.parents.calandreta-dauna.fr/moncompte"]]);-->
+	<!--	_paq.push(["setDomains", ["*.localhost:8080/moncompte"]]);-->
 	<!--	_paq.push(['trackPageView']);-->
 	<!--	_paq.push(['enableLinkTracking']);-->
 	<!--	(function() {-->
-	<!--	var u="//parents.calandreta-dauna.fr/piwik/";-->
+	<!--	var u="//localhost:8080/piwik/";-->
 	<!--	_paq.push(['setTrackerUrl', u+'piwik.php']);-->
 	<!--	_paq.push(['setSiteId', '2']);-->
 	<!--	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];-->
 	<!--	g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);-->
 	<!--	})();-->
 	<!--</script>-->
-	<!--<noscript><p><img src="//parents.calandreta-dauna.fr/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>-->
+	<!--<noscript><p><img src="//localhost:8080/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>-->
 <!-- End Piwik Code -->
 
     </head>

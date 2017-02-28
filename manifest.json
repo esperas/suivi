@@ -1,14 +1,14 @@
 {
-    "_version": "0.1.2.2",
+    "_version": "0.1.2.4",
     "sap.app": {
-        "_version": "0.1.2.2",
+        "_version": "0.1.2.4",
         "id": "ecole.famille",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "applicationVersion": {
-            "version": "0.1.2.2"
+            "version": "0.1.2.4"
         }
     },
     "sap.ui": {
@@ -47,6 +47,9 @@
                 "type": "sap.ui.model.json.JSONModel"
             },
             "files": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "ui": {
                 "type": "sap.ui.model.json.JSONModel"
             }
 

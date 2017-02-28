@@ -13,6 +13,7 @@
     <UploadCollection
             id="files"
             uploadEnabled="false"
+            uploadButtonInvisible="true"
             items="{path : 'files>/fichiers', templateShareable : 'true'}">
 
     <items>

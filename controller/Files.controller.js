@@ -23,14 +23,16 @@ sap.ui.define([
             console.log("chargement des 2 terminé")
             console.log(this.periode)
 
+
             var oFamille = window.oModels["famille"];
-            var oModel = window.oModels["files"]
+            var oModel = window.oModels["files"];
+            var parent = window.oModels["ui"].getProperty("parent");
 
             console.log(window.controller.oArgs.periode)
 
             window.controller.periode = window.controller.oArgs.periode;
             oModel.oData.periode = window.controller.oArgs.periode;
-            for (var i=0;i<oFamille.oData.suivi.length;i++){
+            /*for (var i=0;i<oFamille.oData.suivi.length;i++){
                 if ( oFamille.oData.suivi[i].piece && oFamille.oData.suivi[i].periode) {
                     if (!oModel.oData.fichiers.some(
                         function(element, indice, array){
@@ -40,12 +42,13 @@ sap.ui.define([
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
                             "piece" : oFamille.oData.suivi[i].piece,
-                            "url" :  "./json/facture/" + jQuery.sap.getUriParameters().get("parent") + "-" + oFamille.oData.suivi[i].piece + ".pdf"
+                            "url" :  "http://localhost:8080/moncompte/json/facture/" + parent + "-" + oFamille.oData.suivi[i].piece + ".pdf"
                             })
                         }
                 }
 
-            }
+
+            } */
 
             oModel.refresh()
 
@@ -69,39 +72,27 @@ sap.ui.define([
             console.log("Démarage controller Files")
             this.periode = "toto";
 
+            window.oComp = this.getOwnerComponent()
+
             //var oRouter = this.getRouter();
             //var oRouter = sap.ui.core.routing.Router.getRouter("router");
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             if (oRouter) {
 			     oRouter.getRoute("Files").attachMatched(this._onRouteMatched, this);
             }
+
         },
         _onRouteMatched : function (oEvent) {
             window.controller = this
 			console.log("route matched", this.periode)
             this.oArgs = oEvent.getParameter("arguments");
             var oComp = this.getOwnerComponent()
-            var parent = jQuery.sap.getUriParameters().get("parent");
-            $.when(oComp.file.cachedModel( "famille", "json/"+parent+".json", this.callok),
-                  oComp.file.cachedModel( "files", "json/FILES.json", this.callok ))
+
+            var parent = window.oModels["ui"].getProperty("parent");
+            //var parent = jQuery.sap.getUriParameters().get("parent");
+            $.when(oComp.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.callok),
+                  oComp.file.cachedModel( "files", "http://api:8080/fichiers", this.callok ))
                 .done(this.ok)
-
-  /*          var oArgs, oView;
-
-			oArgs = oEvent.getParameter("arguments");
-			oView = this.getView();
-
-			oView.bindElement({
-				path : "files>/periodes(\"2016-01\")",
-				events : {
-					change: this._onBindingChange.bind(this),
-					dataRequested: function (oEvent) {
-						oView.setBusy(true);
-					},
-					dataReceived: function (oEvent) {
-						oView.setBusy(false);
-					}
-				}*/
 
 		},
 		_onBindingChange : function (oEvent) {

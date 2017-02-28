@@ -12,16 +12,11 @@ sap.ui.define([], function () {
             if ( !window.cachedScriptPromises[ key ] ) {
                 window.cachedScriptPromises[ key ] = $.Deferred(function( defer ) {
                     console.log("Executer script : ", key)
-                    //url += "?=unique" + new Date().getTime();
                     var jqxhr = $.getJSON(url, function() {
                         console.log( "Requête GET lancé" );
                         })
                         .done(function(data) {
-                            if (data._embedded) {
-                                window.oModels[key].setData(data._embedded);
-                            } else {
-                                window.oModels[key].setData(data);
-                            }
+                            window.oModels[key].setData(data)
                             console.log( "Lecture des données ", key, " terminé" );
                             defer.resolve()
                         })
