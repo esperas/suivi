@@ -26,7 +26,9 @@ sap.ui.define([
 
             var oFamille = window.oModels["famille"];
             var oModel = window.oModels["files"];
-            var parent = window.oModels["ui"].getProperty("parent");
+
+            var parent = window.oModels["ui"].oData.parent;
+
 
             console.log(window.controller.oArgs.periode)
 
@@ -42,7 +44,7 @@ sap.ui.define([
                             "periode": oFamille.oData.suivi[i].periode,
                             "filename": oFamille.oData.suivi[i].libelle+".pdf", //Pour l'affichage du symbole PDF
                             "piece" : oFamille.oData.suivi[i].piece,
-                            "url" :  "http://localhost:8080/moncompte/json/facture/" + parent + "-" + oFamille.oData.suivi[i].piece + ".pdf"
+
                             })
                         }
                 }

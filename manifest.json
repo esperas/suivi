@@ -1,14 +1,24 @@
 {
+<<<<<<< HEAD
     "_version": "0.1.2.4",
     "sap.app": {
         "_version": "0.1.2.4",
+=======
+    "_version": "0.1.2.3",
+    "sap.app": {
+        "_version": "0.1.2.3",
+>>>>>>> origin/master
         "id": "ecole.famille",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "applicationVersion": {
+<<<<<<< HEAD
             "version": "0.1.2.4"
+=======
+            "version": "0.1.2.3"
+>>>>>>> origin/master
         }
     },
     "sap.ui": {
