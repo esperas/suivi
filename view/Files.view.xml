@@ -27,7 +27,8 @@
             <attributes>
 							<ObjectAttribute
 								title="{files>title}"
-								text="{files>text}"
+                                text="{ parts: [{path: 'files>type'}, {path: 'files>text'}],
+                                    formatter : '.formatter.formatFile'}"
 								/>
 						</attributes>
         </UploadCollectionItem>

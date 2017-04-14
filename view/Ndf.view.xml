@@ -1,0 +1,74 @@
+<mvc:View
+          controllerName="ecole.famille.controller.Ndf"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc">
+    <Page
+        id="ndf"
+        class="sapUiStdPage" >
+        <customHeader>
+		  <Bar>
+		      <contentLeft>
+
+                  <OverflowToolbar id="otb3">
+                    <Button id="navButton" icon="sap-icon://nav-back" visible="{device>/system/phone}" press="navBack" />
+		            <Button id="NDF" text="{i18n>ndf.template}" press="downloadNDF"
+                            type="Emphasized"
+                            ariaDescribedBy="genericButtonDescription">
+                    </Button>
+                  </OverflowToolbar>
+		      </contentLeft>
+
+		      <contentMiddle>
+                  <Text text = "{i18n>ndf.titre}"></Text>
+		      </contentMiddle>
+            </Bar>
+		</customHeader>
+
+
+    <Panel >
+        <ObjectHeader
+            title="{i18n>ndf.panel.titre}">
+        </ObjectHeader>
+        <List
+            id="idProductsList"
+            items="{ path: 'famille>/suivi' ,
+                     sorter: { path: 'date', descending: true },
+                     filters: [{path: 'typedoc', operator: 'EQ', value1: 'NDF'}] }">
+            <items>
+                <ObjectListItem
+                	title="{famille>libelle}"
+
+				    press="onPDF"
+				    number="{ parts: [{path: 'famille>facture'}, {path: 'famille>paiement'}],
+		                      formatter: '.formatter.montant',
+		                      type: 'sap.ui.model.type.Currency',
+			                    formatOptions: {
+				                        showMeasure: false
+			                                    }
+			                }"
+				    numberUnit="{famille>/currency}"
+				    type="{=${famille>idFile}!==null ? 'Navigation' : 'Inactive'}">
+				    <firstStatus>
+					    <ObjectStatus
+					        visible="{ path: 'famille>status',
+		                                      formatter: '.formatter.isStatusVisible'}"
+						    text="{ parts: [{path: 'famille>status'}, {path: 'famille>typedoc'}],
+		                                      formatter: '.formatter.isStatusText'}"
+						    state="{ path: 'famille>status',parts: [{path: 'famille>status'}, {path: 'famille>typedoc'}],
+		                                      formatter: '.formatter.isStatusState'}"
+                                      />
+				    </firstStatus>
+				    <attributes>
+					    <ObjectAttribute text="{i18n>suivi.list.le} { path: 'famille>date',
+				                                                      formatter: '.formatter.extractDate'
+				                                                    }" />
+				    </attributes>
+			    </ObjectListItem>
+
+            </items>
+        </List>
+    </Panel>
+    </Page>
+
+</mvc:View>

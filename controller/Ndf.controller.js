@@ -5,21 +5,22 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel"
 ], function (Controller, MessageToast, formatter, JSONModel) {
     "use strict";
-    return Controller.extend("ecole.famille.controller.Suivi", {
+    return Controller.extend("ecole.famille.controller.Ndf", {
         formatter : formatter,
 
-        downloadRIB : function(evt) {
-            var idRIB = sap.ui.getCore().getModel('config').getProperty('/idRIB');
+        downloadNDF : function(evt) {
+            var idNDF = sap.ui.getCore().getModel('config').getProperty('/idNDF');
             var sURL = sap.ui.getCore().getModel('files').getUrl();
             if (sURL.indexOf("?") == -1) {
-				sURL = sURL + '/' + idRIB;
+				sURL = sURL + '/' + idNDF;
 			} else {
 				var aUrlParts = sURL.split("?");
-				sURL = aUrlParts[0] + '/' + idRIB;
+				sURL = aUrlParts[0] + '/' + idNDF;
 			}
             window.open(sURL);
+
         },
-        
+
         navBack : function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("");
@@ -30,11 +31,10 @@ sap.ui.define([
             var oItem, oCtx;
 			oItem = evt.getSource();
 			oCtx = oItem.getBindingContext("famille");
-            var toto = oCtx.getProperty("periode");
-            if (toto!=null&&!toto!=undefined) {
-                oRouter.navTo("Files",{
-				    periode : oCtx.getProperty("periode")
-			     });
+            var toto = oCtx.getProperty("idFile");
+            var sURL = sap.ui.getCore().getModel('files').getUrl() + '/' + toto;
+            if (toto){
+                window.open(sURL);
             }
         }
     })

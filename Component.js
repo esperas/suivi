@@ -34,36 +34,24 @@ sap.ui.define([
 
             if (parent) {
                 oStorage.put("parent", parent);
+                parent.toUpperCase();
             } else {
                 parent = oStorage.get("parent");
             }
 
             console.log("Parent : ", parent)
-            // L'identifiant est composé de 10 characters, majuscules et chiffres
-/*
-            var regex = /[A-Z0-9]{10}$/;
-
-            if (!regex.test(parent)) {
-                this.getRouter().initialize();
-                this.getRouter().navTo("nologin");
-            };
-*/
-
-            //parent = "json/" + parent + ".json";
-            //Mise à jour du model avec les "vrai" données
 
             // Stockage des Models pour partage simplifié (pb de porté des Modèles)
+            sap.ui.getCore().setModel(this.getModel("files"), "files");
+            sap.ui.getCore().setModel(this.getModel("famille"), "famille");
+            sap.ui.getCore().setModel(this.getModel("config"), "config");
+            sap.ui.getCore().setModel(this.getModel("ui"), "ui");
 
-            window.oModels["famille"] = this.getModel("famille");
-            window.oModels["files"] = this.getModel("files");
-            window.oModels["ui"] = this.getModel("ui");
-            window.oModels["ui"].oData.parent = parent;
-            window.oModels["ui"].refresh();
-
-
-            this.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
-            this.file.cachedModel( "files", "http://api:8080/fichiers?famille="+parent, this.successCallback);
-
+            if (parent){
+                this.getModel('files').loadDataFromPath(null, '?famille='+parent);
+                this.getModel('famille').loadDataFromPath(null, parent);
+                this.getModel('ui').setProperty('/parent', parent);
+            }
 
             // set i18n model
             var i18nModel = new ResourceModel({
@@ -80,17 +68,9 @@ sap.ui.define([
             var oModel2 = new sap.ui.model.json.JSONModel("manifest.json");
             this.setModel(oModel2,"app");
 
-            // Définir les paramètres de configuration de l'appli
-            var oConfig = new sap.ui.model.json.JSONModel("config.json");
-            this.setModel(oConfig,"config");
-
             // create the views based on the url/hash
             this.getRouter().initialize();
 
-            window.router = this.getRouter();  // Le router est stocké en locale afin d'être disponible pour les fonctions appelé
-
-            // Vérification de l'existence du fichier
-            //this.file.checkFile(parent);           // Code à revoir, le test du fichier peu se faire dans les retours du cachedModel
             if (sap.ui.Device.system.phone!=true) {
                 this.getRouter().navTo("Suivi");
             }

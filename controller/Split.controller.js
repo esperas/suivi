@@ -5,12 +5,6 @@ sap.ui.define([
     "use strict";
     return Controller.extend("ecole.famille.controller.Split", {
 
-        successCallback : function(){
-            console.log("Chargement Model OK")
-            window.oModels["famille"].refresh();
-            //console.log(window.models.famille)
-        },
-
         onConnect : function (oEvent) {
             var oView = this.getView();
             var oDialog = oView.byId("Login");
@@ -25,13 +19,14 @@ sap.ui.define([
 
         onLogin : function (oEvent) {
             this.getView().byId("Login").close();
-            delete window.cachedScriptPromises.famille;
-            var parent = window.oModels["ui"].oData.parent.toUpperCase();
-            window.oModels["ui"].oData.parent = parent;
-            window.oModels["ui"].refresh();
 
+            var parent = sap.ui.getCore().getModel('ui').getProperty('/parent').toUpperCase();
 
-            window.oComp.file.cachedModel( "famille", "http://api:8080/famille/"+parent, this.successCallback);
+            if (parent){
+                sap.ui.getCore().getModel('files').loadDataFromPath(null, '?famille='+parent);
+                sap.ui.getCore().getModel('famille').loadDataFromPath(null, parent);
+                sap.ui.getCore().getModel('ui').setProperty('/parent', parent);
+            }
 
             jQuery.sap.require("jquery.sap.storage");
             var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);

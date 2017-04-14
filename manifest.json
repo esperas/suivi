@@ -1,24 +1,14 @@
 {
-<<<<<<< HEAD
-    "_version": "0.1.2.4",
+    "_version": "0.1.3.0",
     "sap.app": {
-        "_version": "0.1.2.4",
-=======
-    "_version": "0.1.2.3",
-    "sap.app": {
-        "_version": "0.1.2.3",
->>>>>>> origin/master
+        "_version": "0.1.3.0",
         "id": "ecole.famille",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "applicationVersion": {
-<<<<<<< HEAD
-            "version": "0.1.2.4"
-=======
-            "version": "0.1.2.3"
->>>>>>> origin/master
+            "version": "0.1.3.0"
         }
     },
     "sap.ui": {
@@ -34,10 +24,10 @@
         ]
     },
     "sap.ui5": {
-        "_version": "1.30",
+        "_version": "1.44",
         "rootView": "ecole.famille.view.App",
         "dependencies": {
-            "minUI5Version": "1.30",
+            "minUI5Version": "1.44",
             "libs": {
                 "sap.m": {}
             }
@@ -53,11 +43,21 @@
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/Menu.json"
             },
+             "config": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "config.json"
+            },
             "famille": {
-                "type": "sap.ui.model.json.JSONModel"
+                "type": "ecole.shared.model.JSONModel",
+                "uri" : "https//api/famille"
             },
             "files": {
-                "type": "sap.ui.model.json.JSONModel"
+                "type": "ecole.shared.model.JSONModel",
+                "uri" : "http://api/fichiers",
+                "settings": {
+                    "aResponseProperty": ["_embedded"],
+                    "isFile" : "true"
+                }
             },
             "ui": {
                 "type": "sap.ui.model.json.JSONModel"
@@ -69,7 +69,6 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
                 "viewPath": "ecole.famille.view",
-                "transition": "slide",
                 "bypassed": {
 
                         "target": "404"
@@ -113,6 +112,21 @@
                             "targetAggregation" : "detailPages"
                             },
                             {
+                            "pattern" : "ndf/",
+                            "name" : "Ndf",
+                            "view" : "Ndf",
+                            "viewLevel" : 2,
+                            "targetAggregation" : "detailPages"
+                            },
+                            {
+                            "pattern" : "asso/",
+                            "name" : "Asso",
+                            "view" : "Asso",
+                            "viewLevel" : 2,
+                            "targetAggregation" : "detailPages"
+                            },
+
+                            {
                             "pattern" : "periodes/{periode}",
                             "name" : "Files",
                             "view" : "Files",
@@ -140,30 +154,34 @@
                     "controlId": "app",
                     "controlAggregation": "pages",
                     "viewName": "404",
-                    "transition": "show"
+                    "transition": "slide"
                 },
                 "nologin": {
                     "viewName": "NoLogin",
-                    "transition": "show"
+                    "transition": "slide"
                 },
                 "menu": {
                     "viewName": "Menu",
-                    "transition": "show",
+                    "transition": "slide",
                     "viewLevel" : 1
                 },
                 "suivi": {
                     "viewName": "Suivi",
-                    "transition": "show",
+                    "transition": "slide",
+                    "viewLevel" : 2
+                },
+                "asso": {
+                    "viewName": "Asso",
+                    "transition": "slide",
+                    "viewLevel" : 2
+                },
+
+                "ndf": {
+                    "viewName": "Ndf",
+                    "transition": "slide",
                     "viewLevel" : 2
                 }
             }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "css/style.css"
-                }
-            ]
         }
     }
 }

@@ -1,4 +1,9 @@
 # Version:
+0.1.3.0
+Bascule de la lecture des données via le shared.model.Json
+Suppression des appels aux zones windows.oModel
+Ajout de l'affichage des notes de frais
+
 0.1.2.4  
 Abandon des lectures de fichiers sur le serveur.
 Les pièces jointes (PDF de factures ou pièces justificatives) sont désormais fournis par une API.

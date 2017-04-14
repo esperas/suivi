@@ -3,7 +3,7 @@ sap.ui.define([], function () {
 
     return {
 
-        createURL : function( piece ) {
+/*        createURL : function( piece ) {
 
         },
 
@@ -58,7 +58,7 @@ sap.ui.define([], function () {
                 window.router.navTo("nologin");
             }
         },
-
+*/
 
     };
 });

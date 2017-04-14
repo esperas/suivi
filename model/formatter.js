@@ -4,6 +4,24 @@ sap.ui.define([
 	"use strict";
 
 	return {
+
+        formatFile : function(sType, sValue) {
+
+        jQuery.sap.require("sap.ui.core.format.FileSizeFormat");
+            if (sType=='size'){
+
+				return sap.ui.core.format.FileSizeFormat.getInstance({
+					binaryFilesize : false,
+					maxFractionDigits : 1,
+					maxIntegerDigits : 3
+				}).format(sValue);
+
+			} else {
+				return sValue;
+			}
+        },
+
+
         montant: function (facture, reglement) {
             // Remvoi le montant de la facture en négatif sinon le règlement en positif
             var montant = facture || reglement;

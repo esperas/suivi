@@ -2,5 +2,7 @@
     "mailToTresorier": "mailto:maildutresorier@xxx.fr",
     "assoName": "Nom de l'association",
     "urlHelp": "http://url_de_l_aide_ligne.asso.fr",
-    "urlGithub":"https://github.com/esperas/suivi"
+    "urlGithub":"https://github.com/esperas/suivi",
+    "idRIB":"identifiant unique du RIB de l'asso",
+    "idNDF":"identifiant unique du modele de note de frais"
 }

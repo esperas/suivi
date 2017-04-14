@@ -1,0 +1,35 @@
+<mvc:View
+          controllerName="ecole.famille.controller.Asso"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc">
+    <Page
+          class="sapUiResponsiveContentPadding"
+          id="asso"
+          showNavButton="{device>/system/phone}"
+		  navButtonPress="navBack">
+        <Button icon='sap-icon://clear-filter' press='onClear'/>
+
+        <TileContainer
+			id="TileContainer"
+			tileDelete="handleTileDelete"
+			tiles="{ path: '/Tiles',
+		             filters: [{path: 'level', operator: 'EQ', value1: '0'} ]}">
+            <CustomTile borderVisible="true" class="sapMTile" press="press">
+                <content>
+                    <VBox>
+                        <ObjectIdentifier title="{text}" text="{sub}" class="sapUiSmallMargin" />
+                        <TileContent unit='{unit}' footer="{footer}" class="sapUiSmallMargin">
+		                  <content>
+			                 <NumericContent truncateValueTo='6' valueColor="{state}" value="{value}" indicator='{indicator}'/>
+		                  </content>
+                        </TileContent>
+                    </VBox>
+                </content>
+            </CustomTile>
+		</TileContainer>
+
+
+    </Page>
+</mvc:View>
+

@@ -111,7 +111,6 @@
 				    </firstStatus>
 				    <attributes>
 					    <ObjectAttribute text="{i18n>suivi.list.le} { path: 'famille>date',
-
 				                                                      formatter: '.formatter.extractDate'
 				                                                    }" />
 				    </attributes>

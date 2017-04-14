@@ -10,9 +10,16 @@
         "targetPage": "Famille",
         "description": "Pour vérification"
     }, {
+        "title": "Notes de frais",
+        "icon": "sap-icon://sys-help",
+        "targetPage": "Ndf",
+        "description": "Vos notes de frais"
+    },
+    {
         "title": "A Propos",
         "icon": "sap-icon://sys-help",
         "targetPage": "Apropos",
         "description": "Pour les curieux"
-    }]
+    }
+    ]
 }
